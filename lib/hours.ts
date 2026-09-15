@@ -55,6 +55,17 @@ export function isWithinHours(hours: WeeklyHours, date: Date = new Date()): bool
   );
 }
 
+/** When the opening range the business is in right now ends ("22:00"), or null when it's closed by its hours. */
+export function closingTime(hours: WeeklyHours, date: Date = new Date()): string | null {
+  const { day, minutes } = businessClock(date);
+  const today = hours[WEEKDAYS[day]] ?? [];
+  const yesterday = hours[WEEKDAYS[(day + 6) % 7]] ?? [];
+  const current =
+    today.find((range) => minutes >= toMinutes(range[0]) && (isOvernight(range) || minutes < toMinutes(range[1]))) ??
+    yesterday.find((range) => isOvernight(range) && minutes < toMinutes(range[1]));
+  return current ? current[1] : null;
+}
+
 export interface NextOpening {
   /** 0 = later today, 1 = tomorrow, up to 7 = same weekday next week. */
   daysFromToday: number;

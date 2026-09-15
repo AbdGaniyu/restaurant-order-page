@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import {
   createCategory,
@@ -8,8 +9,19 @@ import {
   reorderCategories,
   setCategoryActive,
 } from "@/app/admin/actions";
-import { ErrorText, InlineTextInput, inputClass, primaryButton, SavingSwitch, Section, useSave } from "./controls";
-import { DragHandle, SortableList } from "./SortableList";
+import { DragHandle, SortableList, type DragHandleProps } from "./SortableList";
+import {
+  cx,
+  AppBar,
+  btnGhost,
+  btnPrimary,
+  ErrorText,
+  inputClass,
+  PageHeading,
+  Switch,
+  useOptimisticToggle,
+  useSave,
+} from "./ui";
 
 export interface AdminCategoryRow {
   id: string;
@@ -18,95 +30,203 @@ export interface AdminCategoryRow {
   itemCount: number;
 }
 
+/**
+ * Categories: drag to set the menu's section order, add, rename and delete. Renaming is a field on
+ * desktop and a Rename button on the phone. Each also has a switch to hide it from the menu.
+ */
 export function CategoriesTab({ categories }: { categories: AdminCategoryRow[] }) {
   return (
-    <Section title="Categories">
-      <p className="text-sm text-muted">
-        Drag to set the order on the menu. Hidden categories keep their items but don’t show to customers.
-      </p>
+    <div className="lg:max-w-[760px] lg:px-10 lg:py-8">
+      <AppBar
+        title="Categories"
+        action={
+          <Link href="/admin?tab=items" className={cx(`${btnGhost} px-3`)}>
+            Done
+          </Link>
+        }
+      />
+      <PageHeading title="Categories" subtitle="Order here is the order customers see." />
       <SortableList
         items={categories}
         onReorder={reorderCategories}
-        className="mt-3 divide-y divide-line"
-        renderItem={(category, handle) => (
-          <div className="flex items-center gap-2 py-2">
-            <DragHandle label={`Move ${category.name}`} {...handle} />
-            <div className="min-w-0 flex-1">
-              <InlineTextInput
-                value={category.name}
-                label={`Name of the ${category.name} category`}
-                onSave={(name) => renameCategory(category.id, name)}
-              />
-              <p className="px-2 text-sm text-muted">
-                {category.itemCount} {category.itemCount === 1 ? "item" : "items"}
-              </p>
-            </div>
-            <SavingSwitch
-              checked={category.is_active}
-              label={`Show ${category.name} on the menu`}
-              caption={["Shown", "Hidden"]}
-              onToggle={(active) => setCategoryActive(category.id, active)}
-            />
-            <DeleteCategory id={category.id} name={category.name} itemCount={category.itemCount} />
-          </div>
-        )}
+        renderItem={(category, handle) => <CategoryRow category={category} handle={handle} />}
       />
       <AddCategory />
-    </Section>
+      <p className="px-5 text-xs text-admin-muted lg:hidden">Category order is the order customers see on the menu.</p>
+    </div>
   );
 }
 
-function DeleteCategory({ id, name, itemCount }: { id: string; name: string; itemCount: number }) {
-  const { save, pending, error } = useSave();
+function CategoryRow({ category, handle }: { category: AdminCategoryRow; handle: Omit<DragHandleProps, "label"> }) {
+  const [renaming, setRenaming] = useState(false);
+  const [name, setName] = useState(category.name);
+  const rename = useSave();
+  const remove = useSave();
+  const { shown, toggle, error: toggleError } = useOptimisticToggle(category.is_active, (next) =>
+    setCategoryActive(category.id, next),
+  );
+  const count = `${category.itemCount} ${category.itemCount === 1 ? "item" : "items"}`;
+
+  const saveName = () => {
+    if (name.trim() === category.name) return setRenaming(false);
+    rename.save(
+      () => renameCategory(category.id, name),
+      () => setRenaming(false),
+    );
+  };
+
+  const onDelete = () => {
+    if (category.itemCount > 0) {
+      window.alert(`Move or delete the ${count} in ${category.name} first.`);
+      return;
+    }
+    if (window.confirm(`Delete the ${category.name} category?`)) remove.save(() => deleteCategory(category.id));
+  };
+
   return (
-    <div className="shrink-0">
-      <button
-        type="button"
-        disabled={pending}
-        aria-label={`Delete ${name}`}
-        onClick={() => {
-          if (itemCount > 0) {
-            window.alert(`Move or delete the ${itemCount} ${itemCount === 1 ? "item" : "items"} in ${name} first.`);
-            return;
-          }
-          if (window.confirm(`Delete the ${name} category?`)) save(() => deleteCategory(id));
-        }}
-        className="grid size-11 place-items-center text-xl text-muted"
-      >
-        ×
-      </button>
-      <ErrorText error={error} className="max-w-32 text-xs" />
+    <div className="border-b border-admin-divider">
+      <div className="grid min-h-[60px] grid-cols-[24px_minmax(0,1fr)_auto] items-center gap-3 pr-5 pl-2 lg:grid-cols-[24px_minmax(0,1fr)_100px_auto_auto] lg:gap-4 lg:px-0">
+        <DragHandle label={`Move ${category.name}`} {...handle} />
+
+        {/* Phone: name and count, with an inline field while renaming. */}
+        <div className="min-w-0 lg:hidden">
+          {renaming ? (
+            <form
+              onSubmit={(event: FormEvent) => {
+                event.preventDefault();
+                saveName();
+              }}
+              className="flex gap-2 py-2"
+            >
+              <input
+                aria-label={`New name for ${category.name}`}
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                className={cx(`${inputClass} min-h-11`)}
+              />
+              <button type="submit" disabled={rename.pending} className={btnGhost}>
+                Save
+              </button>
+            </form>
+          ) : (
+            <div className="flex flex-col">
+              <span className={`truncate text-base font-extrabold ${shown ? "" : "text-admin-muted"}`}>{category.name}</span>
+              <span className="text-xs text-admin-muted">
+                {count}
+                {!shown && " · hidden from the menu"}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop: the name is the field. */}
+        <div className="hidden lg:block">
+          <InlineName value={category.name} label={`Name of the ${category.name} category`} onSave={(value) => renameCategory(category.id, value)} />
+        </div>
+        <span className="hidden text-[13px] text-admin-muted lg:block">{count}</span>
+
+        <button
+          type="button"
+          onClick={() => {
+            setName(category.name);
+            setRenaming(!renaming);
+          }}
+          className={cx(`${btnGhost} lg:hidden`)}
+        >
+          {renaming ? "Cancel" : "Rename"}
+        </button>
+        <span className="hidden lg:block">
+          <Switch checked={shown} onChange={toggle} label={`Show ${category.name} on the menu`} />
+        </span>
+        <button type="button" disabled={remove.pending} onClick={onDelete} className={cx(`${btnGhost} hidden lg:inline-flex`)}>
+          Delete
+        </button>
+      </div>
+
+      {renaming && (
+        <div className="flex items-center justify-between gap-3 pr-5 pb-3 pl-9 lg:hidden">
+          <span className="flex items-center gap-1 text-sm">
+            Shown on the menu
+            <Switch checked={shown} onChange={toggle} label={`Show ${category.name} on the menu`} />
+          </span>
+          <button type="button" disabled={remove.pending} onClick={onDelete} className={btnGhost}>
+            Delete
+          </button>
+        </div>
+      )}
+      <ErrorText error={rename.error ?? remove.error ?? toggleError} className="px-5 pb-2 lg:px-0" />
     </div>
+  );
+}
+
+/** Desktop inline rename: saves when the field loses focus or on Enter, only if it changed. */
+function InlineName({
+  value: saved,
+  label,
+  onSave,
+}: {
+  value: string;
+  label: string;
+  onSave: (value: string) => ReturnType<typeof renameCategory>;
+}) {
+  const [value, setValue] = useState(saved);
+  const [lastSaved, setLastSaved] = useState(saved);
+  const { save, pending } = useSave();
+
+  if (saved !== lastSaved && value === lastSaved) {
+    setLastSaved(saved);
+    setValue(saved);
+  }
+
+  return (
+    <input
+      aria-label={label}
+      value={value}
+      onChange={(event) => setValue(event.target.value)}
+      onBlur={() => {
+        if (value.trim() === lastSaved) return;
+        save(
+          () => onSave(value),
+          () => setLastSaved(value.trim()),
+        );
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") event.currentTarget.blur();
+      }}
+      className={`min-h-11 w-full rounded-lg border border-transparent bg-transparent px-2 text-base font-extrabold outline-none hover:border-admin-divider focus-visible:border-accent ${
+        pending ? "opacity-60" : ""
+      }`}
+    />
   );
 }
 
 function AddCategory() {
   const [name, setName] = useState("");
   const { save, pending, error } = useSave();
-
-  const submit = (event: FormEvent) => {
-    event.preventDefault();
-    save(
-      () => createCategory(name),
-      () => setName(""),
-    );
-  };
-
   return (
-    <form onSubmit={submit} noValidate className="mt-4 space-y-2">
-      <div className="flex gap-2">
-        <input
-          aria-label="New category name"
-          placeholder="New category, e.g. Drinks"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          className={inputClass}
-        />
-        <button type="submit" disabled={pending} className={primaryButton}>
-          Add
-        </button>
-      </div>
-      <ErrorText error={error} />
+    <form
+      onSubmit={(event: FormEvent) => {
+        event.preventDefault();
+        save(
+          () => createCategory(name),
+          () => setName(""),
+        );
+      }}
+      noValidate
+      className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 px-5 py-4 lg:px-0 lg:pt-2"
+    >
+      <input
+        aria-label="New category name"
+        placeholder="New category"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+        className={cx(`${inputClass} lg:min-h-11`)}
+      />
+      <button type="submit" disabled={pending} className={cx(`${btnPrimary} lg:min-h-11`)}>
+        <span className="lg:hidden">Add</span>
+        <span className="hidden lg:inline">Add category</span>
+      </button>
+      <ErrorText error={error} className="col-span-2" />
     </form>
   );
 }

@@ -17,9 +17,10 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { useState, type ReactNode } from "react";
+import { useState, useTransition, type ReactNode } from "react";
 import type { ActionResult } from "@/app/admin/actions";
-import { ErrorText, useSave } from "./controls";
+import { IconGrip } from "./icons";
+import { ErrorText } from "./ui";
 
 export interface DragHandleProps {
   label: string;
@@ -28,7 +29,7 @@ export interface DragHandleProps {
   setActivatorNodeRef: (element: HTMLElement | null) => void;
 }
 
-/** The grip a row is dragged by. Only the handle starts a drag, so the rest of the row scrolls normally. */
+/** The six-dot grip a row is dragged by. Only the grip starts a drag, so the rest of the row scrolls. */
 export function DragHandle({ label, attributes, listeners, setActivatorNodeRef }: DragHandleProps) {
   return (
     <button
@@ -37,9 +38,9 @@ export function DragHandle({ label, attributes, listeners, setActivatorNodeRef }
       {...attributes}
       {...listeners}
       aria-label={label}
-      className="grid h-11 w-8 shrink-0 cursor-grab touch-none place-items-center text-xl text-muted active:cursor-grabbing"
+      className="grid h-11 w-6 shrink-0 cursor-grab touch-none place-items-center rounded text-admin-neutral-500 active:cursor-grabbing"
     >
-      <span aria-hidden>⠿</span>
+      <IconGrip />
     </button>
   );
 }
@@ -58,7 +59,7 @@ function SortableRow({
     <li
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`relative bg-page ${isDragging ? "z-10 rounded-xl shadow-lg shadow-ink/20" : ""}`}
+      className={`relative bg-admin-bg ${isDragging ? "z-10 rounded-xl shadow-[0_12px_32px_rgb(45_43_43/0.22)]" : ""}`}
     >
       {children({ attributes, listeners, setActivatorNodeRef })}
     </li>
@@ -66,9 +67,9 @@ function SortableRow({
 }
 
 /**
- * A list reordered by dragging a row's handle (touch, mouse, or keyboard: focus the handle, Space,
- * arrows, Space). The new order shows at once and is saved in the background; if the save fails,
- * the list snaps back and says so.
+ * A list reordered by dragging a row's grip (touch, mouse, or keyboard: focus the grip, Space,
+ * arrows, Space). The new order shows at once and saves in the background; if the save fails,
+ * the list goes back to the saved order and says so.
  */
 export function SortableList<T extends { id: string }>({
   items,
@@ -83,7 +84,8 @@ export function SortableList<T extends { id: string }>({
 }) {
   // While a save is in flight, show the dragged order; afterwards the server's order (now the same).
   const [pendingOrder, setPendingOrder] = useState<string[] | null>(null);
-  const { save, error } = useSave();
+  const [error, setError] = useState<string | null>(null);
+  const [, startTransition] = useTransition();
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
@@ -96,11 +98,12 @@ export function SortableList<T extends { id: string }>({
     if (!over || active.id === over.id) return;
     const next = arrayMove(order, order.indexOf(String(active.id)), order.indexOf(String(over.id)));
     setPendingOrder(next);
-    save(
-      () => onReorder(next),
-      () => setPendingOrder(null),
-      () => setPendingOrder(null),
-    );
+    startTransition(async () => {
+      setError(null);
+      const result = await onReorder(next);
+      if ("error" in result) setError(result.error);
+      setPendingOrder(null);
+    });
   };
 
   return (
@@ -116,7 +119,7 @@ export function SortableList<T extends { id: string }>({
           </ul>
         </SortableContext>
       </DndContext>
-      <ErrorText error={error} className="mt-2" />
+      <ErrorText error={error} className="px-5 pt-2 lg:px-0" />
     </>
   );
 }

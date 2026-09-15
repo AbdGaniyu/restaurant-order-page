@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible, Bungee } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const display = Bungee({
@@ -16,12 +17,6 @@ const body = Atkinson_Hyperlegible({
   subsets: ["latin"],
 });
 
-/** Absolute base for share-preview URLs. On Vercel, the production domain; locally, the dev server. */
-function siteUrl(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  return "http://localhost:3000";
-}
 
 // Each restaurant's layout (app/r/[slug]/layout.tsx) sets its own title, description and theme colour.
 export const metadata: Metadata = {

@@ -52,8 +52,9 @@ orders              id, restaurant_id, reference, created_at, items (jsonb snaps
 app/r/[slug]/page.tsx          public menu (server component, ISR 60s)
 app/r/[slug]/cart/page.tsx     cart and checkout
 app/r/[slug]/opengraph-image   OG image with restaurant name and logo
-app/admin/page.tsx             owner dashboard (?tab=items|categories|orders|settings);
-                               onboarding when the owner has no restaurant yet
+app/admin/page.tsx             owner admin (?tab=home|items|categories|orders|settings);
+                               onboarding when the owner has no restaurant yet. UI follows
+                               the claude.ai/design "Admin Screens" file (Archivo, 375 + 1280)
 app/admin/actions.ts           every admin change, as server actions
 app/admin/login/page.tsx       email login: 6-digit code, or the link in the same email
 app/auth/confirm/route.ts      the email link (token hash, works across browsers)

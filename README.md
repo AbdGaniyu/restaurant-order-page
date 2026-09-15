@@ -41,13 +41,24 @@ from Supabase, so it fails without them.
 
 ## Admin
 
-`/admin` is the owner's panel, built for a phone: items (inline prices, sold-out switches,
-drag to reorder, photos from the camera), options, categories, orders and settings (hours,
-WhatsApp number, open/closed switch, logo, accent colour, visibility). Saving refreshes the
-public menu straight away.
+`/admin` is the owner's panel, built for a phone first (bottom tabs) with a desktop layout
+(left rail) from 1024px, following the "Admin Screens" design:
 
-- **Login:** the owner enters their email and gets a 6-digit code plus a link
-  (`/auth/confirm`). The code works even when the mail app opens links in another browser.
+- **Dashboard:** today's orders and takings, the open/closed switch, quick actions
+  (add item, availability, copy link, QR code).
+- **Items:** grouped by category, sold-out switch on each row, drag to reorder; tap a row to
+  edit in a bottom sheet (phone) or side panel (desktop), with photos from the camera or
+  gallery. Options and add-ons (sizes, extras) keep their own prices and switches below.
+- **Categories** ("Menu" tab on the phone): add, rename, reorder, hide, delete.
+- **Orders:** today / this week, tap to expand, mark status, open the customer's WhatsApp.
+- **Settings:** opening and delivery hours, WhatsApp number, address, accent colour, logo,
+  public link with QR code (PNG/SVG), pickup/delivery and visibility.
+
+Saving refreshes the public menu straight away.
+
+- **Login:** the owner enters their email and gets a sign-in link (`/auth/confirm`). The same
+  email carries a 6-digit code, accepted on the "Check your email" screen for when the mail
+  app opens links in its own browser.
 - **First login:** a new owner goes through three steps (name, WhatsApp number, first items)
   and their menu goes live at `/r/<slug>`.
 - **Existing restaurants** (e.g. the seeded pilot) are linked to their owner with the SQL under

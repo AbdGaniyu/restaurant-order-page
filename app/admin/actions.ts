@@ -13,9 +13,9 @@ import {
   parseNairaToKobo,
   parseWeeklyHours,
   slugify,
-  WEEKDAY_ORDER,
 } from "@/lib/admin/validation";
-import type { Weekday } from "@/lib/types";
+import { isWithinHours } from "@/lib/hours";
+import type { Weekday, WeeklyHours } from "@/lib/types";
 
 /**
  * Every admin change. Each action checks the session first (server actions can be called with a
@@ -23,7 +23,8 @@ import type { Weekday } from "@/lib/types";
  * public menu so the change shows immediately instead of after the 60-second ISR window.
  */
 
-export type ActionResult = { ok: true } | { error: string };
+/** `id` is the created row, when an action creates one (so the page can upload its photo next). */
+export type ActionResult = { ok: true; id?: string; itemIds?: string[] } | { error: string };
 
 const OK: ActionResult = { ok: true };
 const fail = (error: string): ActionResult => ({ error });
@@ -48,12 +49,20 @@ const PRICE_HINT = "Enter a price in whole naira, e.g. 1500";
 
 // Items ------------------------------------------------------------------------
 
-export async function createItem(categoryId: string, name: string, price: string): Promise<ActionResult> {
+export async function createItem(input: {
+  categoryId: string;
+  name: string;
+  description: string;
+  price: string;
+}): Promise<ActionResult> {
   const { supabase, restaurant } = await requireRestaurant();
-  const itemName = cleanText(name, 100);
-  const priceKobo = parseNairaToKobo(price);
+  const { categoryId } = input;
+  const itemName = cleanText(input.name, 100);
+  const description = input.description.trim() ? cleanText(input.description, 500) : null;
+  const priceKobo = parseNairaToKobo(input.price);
   if (!isUuid(categoryId)) return fail("Choose a category");
   if (!itemName) return fail("Enter the item’s name");
+  if (input.description.trim() && !description) return fail("Keep the description under 500 characters");
   if (priceKobo === null) return fail(PRICE_HINT);
 
   const { data: last } = await supabase
@@ -64,14 +73,21 @@ export async function createItem(categoryId: string, name: string, price: string
     .order("sort_order", { ascending: false })
     .limit(1)
     .maybeSingle();
-  const { error } = await supabase.from("items").insert({
-    restaurant_id: restaurant.id,
-    category_id: categoryId,
-    name: itemName,
-    price_kobo: priceKobo,
-    sort_order: (last?.sort_order ?? 0) + 1,
-  });
-  return done(error, restaurant.slug);
+  const { data, error } = await supabase
+    .from("items")
+    .insert({
+      restaurant_id: restaurant.id,
+      category_id: categoryId,
+      name: itemName,
+      description,
+      price_kobo: priceKobo,
+      sort_order: (last?.sort_order ?? 0) + 1,
+    })
+    .select("id")
+    .single();
+  if (error) return done(error, restaurant.slug);
+  refreshMenu(restaurant.slug);
+  return { ok: true, id: data.id };
 }
 
 export async function updateItem(
@@ -348,25 +364,50 @@ export async function saveSettings(input: SettingsInput): Promise<ActionResult> 
   return done(error, restaurant.slug);
 }
 
+/**
+ * The dashboard's "Open now" switch. It only overrides the schedule when the switch disagrees
+ * with it; switching back to what the hours say clears the override, so the restaurant doesn't
+ * stay forced open or closed after the owner meant a one-off.
+ */
+export async function setOpenNow(open: boolean): Promise<ActionResult> {
+  const { supabase, restaurant } = await requireRestaurant();
+  if (typeof open !== "boolean") return fail(TRY_AGAIN);
+  const scheduledOpen = isWithinHours(restaurant.opening_hours as unknown as WeeklyHours);
+  const { error } = await supabase
+    .from("restaurants")
+    .update({ is_open_override: open === scheduledOpen ? null : open })
+    .eq("id", restaurant.id);
+  return done(error, restaurant.slug);
+}
+
 // Onboarding -------------------------------------------------------------------
 
 export interface OnboardingInput {
   name: string;
   whatsappNumber: string;
+  openingHours: Record<Weekday, DayHoursInput>;
   items: { name: string; price: string }[];
 }
 
-const DEFAULT_HOURS = Object.fromEntries(WEEKDAY_ORDER.map((day) => [day, [["08:00", "20:00"]]]));
+const MAX_ONBOARDING_ITEMS = 10;
 
-/** First login: creates the restaurant, a "Menu" category and the first items, then publishes it. */
+/**
+ * First login: creates the restaurant with its hours, a "Menu" category and the first items, and
+ * publishes it. Returns the new ids so the page can upload photos picked during onboarding.
+ */
 export async function createRestaurant(input: OnboardingInput): Promise<ActionResult> {
   const { supabase, userId, restaurant: existing } = await getOwner();
   if (existing) redirect("/admin");
 
   const name = cleanText(input.name, 80);
   const whatsapp = normalizeWhatsAppNumber(input.whatsappNumber);
+  const openingHours = parseWeeklyHours(input.openingHours);
   if (!name) return fail("Enter your restaurant’s name");
   if (!whatsapp) return fail("Enter the WhatsApp number with its country code, e.g. +234 803 123 4567");
+  if (!openingHours) return fail("Check the hours: each open day needs an opening and closing time");
+  if (!Array.isArray(input.items) || input.items.length > MAX_ONBOARDING_ITEMS) {
+    return fail(`Add up to ${MAX_ONBOARDING_ITEMS} items now; you can add the rest from the admin`);
+  }
 
   const items = [];
   for (const [index, item] of input.items.entries()) {
@@ -391,8 +432,9 @@ export async function createRestaurant(input: OnboardingInput): Promise<ActionRe
         slug,
         name,
         whatsapp_number: whatsapp,
-        opening_hours: DEFAULT_HOURS,
-        delivery_hours: DEFAULT_HOURS,
+        opening_hours: openingHours,
+        // Delivery starts off; when the owner turns it on in Settings, its hours start from these.
+        delivery_hours: openingHours,
         accepts_pickup: true,
         accepts_delivery: false,
         order_prefix: orderPrefixFor(name),
@@ -415,13 +457,18 @@ export async function createRestaurant(input: OnboardingInput): Promise<ActionRe
     .select("id")
     .single();
   if (categoryError) return done(categoryError, slug);
-  const { error } = await supabase
+  const { data: created, error } = await supabase
     .from("items")
-    .insert(items.map((item) => ({ ...item, restaurant_id: restaurantId, category_id: category.id })));
+    .insert(items.map((item) => ({ ...item, restaurant_id: restaurantId, category_id: category.id })))
+    .select("id, sort_order");
   if (error) return done(error, slug);
 
   refreshMenu(slug);
-  redirect("/admin?tab=items&welcome=1");
+  return {
+    ok: true,
+    id: restaurantId,
+    itemIds: [...(created ?? [])].sort((a, b) => a.sort_order - b.sort_order).map((item) => item.id),
+  };
 }
 
 // Session ----------------------------------------------------------------------
