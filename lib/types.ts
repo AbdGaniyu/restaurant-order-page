@@ -1,9 +1,8 @@
 /**
- * Row shapes for the week-2 Supabase tables (spec §2). Keys are snake_case and
- * identical to the column names, so data/menu.json can later be swapped for a
- * Supabase query without touching the UI.
+ * The menu shapes the UI renders. lib/menu.ts builds them from the Supabase rows
+ * (supabase/migrations), and data/menu.json — the seed source — uses them too.
  *
- * All prices are integers in naira.
+ * All prices here are integers in naira; the database stores kobo.
  */
 
 export interface Category {
@@ -71,15 +70,21 @@ export interface Packaging {
   two_litre_pack: number | null;
 }
 
-/** Single row. */
+/** One restaurant. */
 export interface BusinessSettings {
   id: string;
+  /** The restaurant's URL segment: /r/<slug>. */
+  slug: string;
   name: string;
   /** International format without "+", as wa.me expects: "2347025973433". */
   whatsapp_number: string;
   address: string | null;
   maps_url: string | null;
   brand_color: string;
+  /** Absolute URL or a path under public/; null shows no logo. */
+  logo_url: string | null;
+  /** Order references read "<prefix>-A7F3K". */
+  order_prefix: string;
   opening_hours: WeeklyHours;
   delivery_hours: WeeklyHours;
   accepts_delivery: boolean;

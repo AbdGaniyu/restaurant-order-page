@@ -56,7 +56,7 @@ export function prepareOrder({
   customer,
   host,
   now = new Date(),
-  reference = generateOrderReference(),
+  reference = generateOrderReference(settings.order_prefix),
 }: {
   settings: BusinessSettings;
   lines: CartLine[];
@@ -67,4 +67,18 @@ export function prepareOrder({
 }): PreparedOrder {
   const message = buildOrderMessage({ settings, lines, customer, reference, sentAt: now, host });
   return { reference, message, url: whatsappUrl(settings.whatsapp_number, message) };
+}
+
+/**
+ * Records the order for the owner (POST /api/orders). Fire-and-forget: it goes out in the same tap
+ * that opens WhatsApp, and keepalive lets it finish even if the page navigates away to WhatsApp.
+ * A failed log never blocks the order — the message is what the restaurant acts on.
+ */
+export function logOrder(slug: string, reference: string, lines: CartLine[], customer: CustomerDetails) {
+  fetch('/api/orders', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ slug, reference, lines, customer }),
+    keepalive: true,
+  }).catch(() => {});
 }

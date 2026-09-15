@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { checkoutErrors, prepareOrder, type CheckoutForm } from './checkout';
-import { getMenu } from './menu';
-import { generateOrderReference } from './order-reference';
+import { generateOrderReference, isOrderReference } from './order-reference';
+import { pilotMenu } from './test-fixtures';
 import { formatWhatsAppNumber, whatsappUrl } from './whatsapp';
 
-const { business_settings: settings } = await getMenu();
+const { business_settings: settings } = pilotMenu;
 const open = { deliveryAvailable: true, pickupAvailable: true };
 const filled: CheckoutForm = {
   name: 'Tunde',
@@ -78,10 +78,17 @@ describe('prepareOrder', () => {
 });
 
 describe('generateOrderReference', () => {
-  it('is YK- plus 5 characters without 0, O, 1 or I', () => {
+  it("is the restaurant's prefix plus 5 characters without 0, O, 1 or I", () => {
     for (let i = 0; i < 200; i++) {
-      expect(generateOrderReference()).toMatch(/^YK-[A-HJ-NP-Z2-9]{5}$/);
+      expect(generateOrderReference('YK')).toMatch(/^YK-[A-HJ-NP-Z2-9]{5}$/);
     }
+  });
+
+  it('round-trips through isOrderReference', () => {
+    expect(isOrderReference(generateOrderReference('SK'), 'SK')).toBe(true);
+    expect(isOrderReference('YK-A7F3K', 'SK')).toBe(false);
+    expect(isOrderReference('YK-A7F3O', 'YK')).toBe(false);
+    expect(isOrderReference('YK-A7F3KX', 'YK')).toBe(false);
   });
 });
 

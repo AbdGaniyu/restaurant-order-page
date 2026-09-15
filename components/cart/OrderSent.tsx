@@ -23,7 +23,7 @@ export function OrderSent({ order, settings, showFallback, onShowFallback }: Ord
 
   const startNewOrder = () => {
     clearCart();
-    router.push("/");
+    router.push(`/r/${settings.slug}`);
   };
 
   const copy = async () => {

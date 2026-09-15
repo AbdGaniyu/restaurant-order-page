@@ -13,6 +13,7 @@ import { removeFromCart, updateQuantity, useCart, useCartLoaded } from "@/lib/ca
 import {
   CHECKOUT_FIELDS,
   checkoutErrors,
+  logOrder,
   prepareOrder,
   type CheckoutField,
   type CheckoutForm,
@@ -42,6 +43,8 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
   const stopWatching = useRef<(() => void) | undefined>(undefined);
 
   useEffect(() => () => stopWatching.current?.(), []);
+
+  const menuHref = `/r/${settings.slug}`;
 
   const { lines, removed } = repriceCart(saved, items);
   const soldOut = lines.some((line) => line.sold_out);
@@ -76,12 +79,9 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
       }
       return;
     }
-    const order = prepareOrder({
-      settings,
-      lines,
-      customer: { ...form, orderType },
-      host: window.location.host,
-    });
+    const customer = { ...form, orderType };
+    const order = prepareOrder({ settings, lines, customer, host: window.location.host });
+    logOrder(settings.slug, order.reference, lines, customer);
     openWhatsApp(order.url);
     analytics.orderSent({ order_type: orderType, item_count: cartItemCount(lines), subtotal });
     setSent(order);
@@ -94,7 +94,7 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
   if (sent) {
     return (
       <>
-        <CartHeader />
+        <CartHeader menuHref={menuHref} />
         <OrderSent
           order={sent}
           settings={settings}
@@ -107,7 +107,7 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
 
   return (
     <>
-      <CartHeader />
+      <CartHeader menuHref={menuHref} />
       <ClosedBanner settings={settings} />
 
       <main className="mx-auto w-full max-w-2xl px-4 pb-36">
@@ -136,7 +136,7 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
                 <p className="text-lg font-bold">Your cart is empty</p>
                 <p className="mt-1 text-muted">Add something from the menu to start an order.</p>
                 <Link
-                  href="/"
+                  href={menuHref}
                   className="mt-6 inline-grid h-12 place-items-center rounded-full bg-brand px-6 font-bold text-ink"
                 >
                   Browse the menu
@@ -299,13 +299,13 @@ export function CartView({ settings, items }: { settings: BusinessSettings; item
   );
 }
 
-function CartHeader() {
+function CartHeader({ menuHref }: { menuHref: string }) {
   return (
     <header className="border-b border-line">
       <AbulaStripe className="h-1.5" />
       <div className="mx-auto flex max-w-2xl items-center gap-2 px-4 py-3">
         <Link
-          href="/"
+          href={menuHref}
           aria-label="Back to menu"
           className="-ml-2 grid size-11 place-items-center rounded-full text-2xl"
         >

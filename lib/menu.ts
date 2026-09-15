@@ -1,10 +1,143 @@
-import menuJson from '@/data/menu.json';
+import { cache } from 'react';
+import type { Tables } from './database.types';
 import { formatNaira } from './format';
-import type { Category, MenuData, MenuItem, Option, OptionGroup } from './types';
+import { createPublicClient } from './supabase/public';
+import type {
+  Category,
+  MenuData,
+  MenuItem,
+  Option,
+  OptionGroup,
+  Packaging,
+  SelectionType,
+  WeeklyHours,
+} from './types';
 
-/** Week 1 reads the bundled JSON. Week 2 replaces this body with Supabase queries returning the same rows. */
-export async function getMenu(): Promise<MenuData> {
-  return menuJson as MenuData;
+/** The database stores kobo; the app works in whole naira (the schema only allows multiples of 100). */
+const toNaira = (kobo: number) => kobo / 100;
+
+/** One restaurant's rows, as Supabase returns them. */
+export interface MenuRows {
+  restaurant: Tables<'restaurants'>;
+  categories: Tables<'categories'>[];
+  items: Tables<'items'>[];
+  option_groups: Tables<'option_groups'>[];
+  options: Tables<'options'>[];
+  item_option_groups: Tables<'item_option_groups'>[];
+}
+
+/** Maps a restaurant's rows onto the shapes the menu UI renders. */
+export function menuFromRows(rows: MenuRows): MenuData {
+  const { restaurant } = rows;
+  const packaging = restaurant.packaging_kobo as Partial<Record<keyof Packaging, number | null>>;
+  const pack = (key: keyof Packaging) => {
+    const kobo = packaging[key];
+    return typeof kobo === 'number' ? toNaira(kobo) : null;
+  };
+
+  return {
+    business_settings: {
+      id: restaurant.id,
+      slug: restaurant.slug,
+      name: restaurant.name,
+      // E.164 in the database; wa.me wants the digits only.
+      whatsapp_number: restaurant.whatsapp_number.replace(/\D/g, ''),
+      address: restaurant.address,
+      maps_url: restaurant.maps_url,
+      brand_color: restaurant.accent_hex,
+      logo_url: restaurant.logo_url,
+      order_prefix: restaurant.order_prefix,
+      opening_hours: restaurant.opening_hours as unknown as WeeklyHours,
+      delivery_hours: restaurant.delivery_hours as unknown as WeeklyHours,
+      accepts_delivery: restaurant.accepts_delivery,
+      accepts_pickup: restaurant.accepts_pickup,
+      is_open_override: restaurant.is_open_override,
+      delivery_fee_tiers: restaurant.delivery_fee_tiers_kobo.map(toNaira),
+      packaging: { small_pack: pack('small_pack'), big_pack: pack('big_pack'), two_litre_pack: pack('two_litre_pack') },
+    },
+    categories: rows.categories.map((category) => ({
+      id: category.id,
+      name: category.name,
+      slug: category.slug,
+      sort_order: category.sort_order,
+      is_active: category.is_active,
+    })),
+    menu_items: rows.items.map((item) => ({
+      id: item.id,
+      category_id: item.category_id,
+      name: item.name,
+      description: item.description,
+      price: toNaira(item.price_kobo),
+      image_url: item.photo_url,
+      is_available: item.is_available,
+      sort_order: item.sort_order,
+      pos_name: item.pos_name,
+    })),
+    option_groups: rows.option_groups.map((group) => ({
+      id: group.id,
+      name: group.name,
+      selection_type: group.selection_type as SelectionType,
+      is_required: group.is_required,
+      min_select: group.min_select,
+      max_select: group.max_select,
+      sort_order: group.sort_order,
+    })),
+    options: rows.options.map((option) => ({
+      id: option.id,
+      option_group_id: option.option_group_id,
+      name: option.name,
+      price_delta: toNaira(option.price_delta_kobo),
+      is_available: option.is_available,
+      sort_order: option.sort_order,
+      pos_name: option.pos_name,
+    })),
+    menu_item_option_groups: rows.item_option_groups.map((link) => ({
+      menu_item_id: link.item_id,
+      option_group_id: link.option_group_id,
+    })),
+  };
+}
+
+/**
+ * A published restaurant's menu, or null if there's no such published restaurant.
+ * cache() shares one read between the layout, page, metadata and images of a render.
+ */
+export const getMenu = cache(async (slug: string): Promise<MenuData | null> => {
+  const db = createPublicClient();
+  const { data: restaurant, error } = await db
+    .from('restaurants')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .maybeSingle();
+  if (error) throw error;
+  if (!restaurant) return null;
+
+  const [categories, items, optionGroups, options, links] = await Promise.all([
+    db.from('categories').select('*').eq('restaurant_id', restaurant.id),
+    db.from('items').select('*').eq('restaurant_id', restaurant.id),
+    db.from('option_groups').select('*').eq('restaurant_id', restaurant.id),
+    db.from('options').select('*').eq('restaurant_id', restaurant.id),
+    db.from('item_option_groups').select('*').eq('restaurant_id', restaurant.id),
+  ]);
+  for (const result of [categories, items, optionGroups, options, links]) {
+    if (result.error) throw result.error;
+  }
+
+  return menuFromRows({
+    restaurant,
+    categories: categories.data ?? [],
+    items: items.data ?? [],
+    option_groups: optionGroups.data ?? [],
+    options: options.data ?? [],
+    item_option_groups: links.data ?? [],
+  });
+});
+
+export async function getPublishedSlugs(): Promise<string[]> {
+  const { data, error } = await createPublicClient().from('restaurants').select('slug').eq('is_published', true);
+  if (error) throw error;
+  return data.map((restaurant) => restaurant.slug);
 }
 
 export type OptionGroupView = OptionGroup & { options: Option[] };

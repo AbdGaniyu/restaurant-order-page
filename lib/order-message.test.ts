@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { getMenu } from './menu';
 import { buildOrderMessage, type CustomerDetails, type OrderDraft } from './order-message';
+import { pilotMenu } from './test-fixtures';
 import type { CartLine } from './types';
 
-const { business_settings: settings } = await getMenu();
+const { business_settings: settings } = pilotMenu;
 
 const amala: CartLine = {
   line_id: 'line-1',

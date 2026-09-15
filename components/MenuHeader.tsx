@@ -13,17 +13,19 @@ export function MenuHeader({ settings }: { settings: BusinessSettings }) {
     <header className="bg-brand text-ink">
       <div className="mx-auto max-w-2xl px-4 pt-7 pb-5">
         <div className="flex items-center gap-4">
-          {/* The logo is orange and black on transparent, so it sits on a white field (brand guidelines). */}
-          <span className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-full bg-page">
-            <Image
-              src="/brand/logo.png"
-              alt=""
-              width={96}
-              height={96}
-              loading="eager"
-              className="size-full scale-125 object-contain"
-            />
-          </span>
+          {/* Logos sit on a white field so transparent ones stay legible on the accent colour. */}
+          {settings.logo_url && (
+            <span className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-full bg-page">
+              <Image
+                src={settings.logo_url}
+                alt=""
+                width={96}
+                height={96}
+                loading="eager"
+                className="size-full scale-125 object-contain"
+              />
+            </span>
+          )}
           <h1 className="min-w-0 font-display text-[2.25rem] leading-[0.95]">{settings.name}</h1>
         </div>
 

@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { extname, join, resolve, sep } from "node:path";
 
 /** Shared pieces for the generated share preview and icons (rendered at build time with next/og). */
 
@@ -24,10 +24,23 @@ export async function brandFonts() {
   ];
 }
 
-/** The logo as a data URL, which is how the image renderer takes pictures. */
-export async function logoDataUrl(): Promise<string> {
-  const png = await readFile(join(process.cwd(), "public/brand/logo.png"));
-  return `data:image/png;base64,${png.toString("base64")}`;
+const IMAGE_TYPES: Record<string, string> = { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg" };
+
+/**
+ * A restaurant's logo in a form the image renderer takes: a path under public/ becomes a data
+ * URL, an absolute URL is passed through (the renderer fetches it). Null when there's no usable logo.
+ */
+export async function logoImageSrc(logoUrl: string | null): Promise<string | null> {
+  if (!logoUrl) return null;
+  if (/^https?:\/\//.test(logoUrl)) return logoUrl;
+
+  const publicDir = resolve(process.cwd(), "public");
+  const file = resolve(publicDir, `.${logoUrl}`);
+  const type = IMAGE_TYPES[extname(file).toLowerCase()];
+  // logo_url is owner-supplied: never read outside public/.
+  if (!type || !file.startsWith(publicDir + sep)) return null;
+  const data = await readFile(file).catch(() => null);
+  return data && `data:${type};base64,${data.toString("base64")}`;
 }
 
 export function AbulaStripeImage({ height }: { height: number }) {
@@ -40,8 +53,8 @@ export function AbulaStripeImage({ height }: { height: number }) {
   );
 }
 
-/** A "Y" on the brand orange over the abula stripe: the signboard, shrunk to an icon. */
-export function BrandMark({ size, color }: { size: number; color: string }) {
+/** The restaurant's initial on its accent colour over the abula stripe: the signboard, shrunk to an icon. */
+export function BrandMark({ size, color, name }: { size: number; color: string; name: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", background: color }}>
       <div
@@ -56,7 +69,7 @@ export function BrandMark({ size, color }: { size: number; color: string }) {
           color: INK,
         }}
       >
-        Y
+        {name.trim().charAt(0).toUpperCase()}
       </div>
       <AbulaStripeImage height={Math.max(3, Math.round(size * 0.14))} />
     </div>

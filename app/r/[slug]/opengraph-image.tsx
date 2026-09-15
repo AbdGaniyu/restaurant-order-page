@@ -1,17 +1,21 @@
+import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { AbulaStripeImage, brandFonts, INK, logoDataUrl } from "@/lib/brand-images";
+import { AbulaStripeImage, brandFonts, INK, logoImageSrc } from "@/lib/brand-images";
 import { formatDailyHours } from "@/lib/hours";
 import { getMenu } from "@/lib/menu";
 
-export const alt = "Yàkoyó Abula Joint: see the menu and order on WhatsApp";
+export const alt = "See the menu and order on WhatsApp";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const revalidate = 60;
 
 /** The link preview on WhatsApp and Instagram: the signboard header at poster size. */
-export default async function OpenGraphImage() {
-  const { business_settings: settings } = await getMenu();
+export default async function OpenGraphImage({ params }: { params: Promise<{ slug: string }> }) {
+  const menu = await getMenu((await params).slug);
+  if (!menu) notFound();
+  const settings = menu.business_settings;
   const hours = formatDailyHours(settings.opening_hours);
-  const logo = await logoDataUrl();
+  const logo = await logoImageSrc(settings.logo_url);
 
   return new ImageResponse(
     (
@@ -39,21 +43,23 @@ export default async function OpenGraphImage() {
               </div>
             )}
           </div>
-          {/* The logo is orange and black on transparent, so it sits on a white field (brand guidelines). */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 340,
-              height: 340,
-              borderRadius: 170,
-              background: "#ffffff",
-              overflow: "hidden",
-            }}
-          >
-            <img src={logo} alt="" width={425} height={425} />
-          </div>
+          {/* Logos sit on a white field so transparent ones stay legible on the accent colour. */}
+          {logo && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 340,
+                height: 340,
+                borderRadius: 170,
+                background: "#ffffff",
+                overflow: "hidden",
+              }}
+            >
+              <img src={logo} alt="" width={425} height={425} />
+            </div>
+          )}
         </div>
         <AbulaStripeImage height={28} />
       </div>

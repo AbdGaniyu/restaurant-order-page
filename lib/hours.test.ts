@@ -10,7 +10,7 @@ import {
   nextOpening,
   WEEKDAYS,
 } from './hours';
-import { getMenu } from './menu';
+import { pilotMenu } from './test-fixtures';
 import type { BusinessSettings, TimeRange, WeeklyHours } from './types';
 
 /** A Lagos wall-clock time. 2026-09-11 is a Friday. */
@@ -107,9 +107,9 @@ describe('formatDailyHours', () => {
   });
 });
 
-describe('getBusinessStatus', async () => {
+describe('getBusinessStatus', () => {
   const base: BusinessSettings = {
-    ...(await getMenu()).business_settings,
+    ...pilotMenu.business_settings,
     opening_hours: walkIn,
     delivery_hours: delivery,
     accepts_delivery: true,

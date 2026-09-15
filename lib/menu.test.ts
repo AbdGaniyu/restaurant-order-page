@@ -2,10 +2,11 @@ import { describe, expect, it } from 'vitest';
 import posPricesJson from '@/data/pos-prices.json';
 import { formatNaira } from './format';
 import { WEEKDAYS } from './hours';
-import { buildMenuView, cardPriceLabel, getMenu, type MenuItemView } from './menu';
-import { sampleMenu } from './test-fixtures';
+import { buildMenuView, cardPriceLabel, type MenuItemView } from './menu';
+import { pilotMenu, sampleMenu } from './test-fixtures';
 
-const menu = await getMenu();
+// data/menu.json: the source supabase/seed.sql is generated from.
+const menu = pilotMenu;
 const view = buildMenuView(menu);
 const items = view.flatMap((category) => category.items);
 

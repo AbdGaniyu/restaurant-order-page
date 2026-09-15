@@ -4,34 +4,48 @@ import { addLine, parseCart, removeLine, setLineQuantity } from './cart';
 import type { CartLine } from './types';
 
 /**
- * The cart, shared by every component that calls useCart() and saved to localStorage.
- * useSyncExternalStore renders the server snapshot (empty) during hydration, so the
- * saved cart appears right after mount without a hydration mismatch.
+ * The cart for the restaurant in the URL (/r/<slug>/…), shared by every component that calls
+ * useCart() and saved to localStorage per restaurant. useSyncExternalStore renders the server
+ * snapshot (empty) during hydration, so the saved cart appears right after mount without a
+ * hydration mismatch.
  */
 
-const STORAGE_KEY = 'yakoyo_cart_v1';
+const STORAGE_PREFIX = 'cart_v1:';
 const EMPTY: CartLine[] = [];
 
 let lines: CartLine[] | null = null;
+let linesKey: string | null = null;
 const listeners = new Set<() => void>();
 
-function readStorage(): string | null {
+/** Each restaurant keeps its own cart. The slug comes from the URL, so no component has to pass it down. */
+function storageKey(): string {
+  const slug = window.location.pathname.match(/^\/r\/([^/]+)/)?.[1] ?? '';
+  return STORAGE_PREFIX + decodeURIComponent(slug);
+}
+
+function readStorage(key: string): string | null {
   try {
-    return window.localStorage.getItem(STORAGE_KEY);
+    return window.localStorage.getItem(key);
   } catch {
     return null; // private mode or storage blocked: the cart still works for this visit
   }
 }
 
 function getSnapshot(): CartLine[] {
-  lines ??= parseCart(readStorage());
+  const key = storageKey();
+  if (lines === null || linesKey !== key) {
+    lines = parseCart(readStorage(key));
+    linesKey = key;
+  }
   return lines;
 }
 
 function commit(next: CartLine[]) {
+  const key = storageKey();
   lines = next;
+  linesKey = key;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    window.localStorage.setItem(key, JSON.stringify(next));
   } catch {}
   listeners.forEach((listener) => listener());
 }
@@ -40,7 +54,7 @@ function subscribe(listener: () => void) {
   listeners.add(listener);
   // Another tab changed the cart.
   const onStorage = (event: StorageEvent) => {
-    if (event.key !== STORAGE_KEY) return;
+    if (event.key !== storageKey()) return;
     lines = null;
     listener();
   };

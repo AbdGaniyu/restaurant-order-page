@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
 import { ClosedBanner } from "@/components/BusinessStatus";
 import { CartBar } from "@/components/CartBar";
@@ -7,8 +8,13 @@ import { MenuItemCard } from "@/components/MenuItemCard";
 import { MenuNotes } from "@/components/MenuNotes";
 import { buildMenuView, getMenu } from "@/lib/menu";
 
-export default async function MenuPage() {
-  const menu = await getMenu();
+/** ISR: served from the cache and regenerated in the background at most once a minute. */
+export const revalidate = 60;
+
+export default async function MenuPage({ params }: PageProps<"/r/[slug]">) {
+  const { slug } = await params;
+  const menu = await getMenu(slug);
+  if (!menu) notFound();
   const settings = menu.business_settings;
   const categories = buildMenuView(menu).filter((category) => category.items.length > 0);
 
@@ -40,7 +46,7 @@ export default async function MenuPage() {
         <MenuNotes settings={settings} />
       </main>
 
-      <CartBar />
+      <CartBar cartHref={`/r/${slug}/cart`} />
     </div>
   );
 }

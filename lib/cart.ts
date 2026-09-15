@@ -136,12 +136,16 @@ export function repriceCart(
   return { lines: checked, removed };
 }
 
+/** The well-formed cart lines in untrusted input (saved storage, a request body), dropping the rest. */
+export function cartLinesFrom(value: unknown): CartLine[] {
+  return Array.isArray(value) ? value.filter(isCartLine) : [];
+}
+
 /** Reads a saved cart, dropping anything malformed rather than failing. */
 export function parseCart(raw: string | null): CartLine[] {
   if (!raw) return [];
   try {
-    const value: unknown = JSON.parse(raw);
-    return Array.isArray(value) ? value.filter(isCartLine) : [];
+    return cartLinesFrom(JSON.parse(raw));
   } catch {
     return [];
   }
