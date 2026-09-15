@@ -52,8 +52,12 @@ orders              id, restaurant_id, reference, created_at, items (jsonb snaps
 app/r/[slug]/page.tsx          public menu (server component, ISR 60s)
 app/r/[slug]/cart/page.tsx     cart and checkout
 app/r/[slug]/opengraph-image   OG image with restaurant name and logo
-app/admin/page.tsx             owner dashboard: items, categories, orders, settings
-app/admin/login/page.tsx       magic-link login
+app/admin/page.tsx             owner dashboard (?tab=items|categories|orders|settings);
+                               onboarding when the owner has no restaurant yet
+app/admin/actions.ts           every admin change, as server actions
+app/admin/login/page.tsx       email login: 6-digit code, or the link in the same email
+app/auth/confirm/route.ts      the email link (token hash, works across browsers)
+proxy.ts                       /admin only: refreshes session cookies, redirects signed-out users
 app/api/orders/route.ts        POST logs an order snapshot (re-priced from the database)
 ```
 
@@ -72,6 +76,11 @@ app/api/orders/route.ts        POST logs an order snapshot (re-priced from the d
   browsable and orders go through as pre-orders marked "(sent outside opening hours)".
 
 ## Admin rules
+- Server actions check the session first (`lib/admin/session.ts`; they're reachable by
+  plain POST), write with the owner's cookie client so RLS applies, then revalidate
+  `/r/<slug>` so the change is live immediately. Never use the service role key for admin writes.
+- The public menu and /api/orders use the cookie-less client (`lib/supabase/public.ts`)
+  so they stay static; only /admin reads cookies.
 - Every admin action works on a 375px screen with a thumb: toggle
   availability, edit price inline, reorder by drag, upload photo from camera.
 - Photo uploads: client-side resize to max 1200px and compress before upload;

@@ -39,6 +39,32 @@ from Supabase, so it fails without them.
 | `POST /api/orders` | Logs an order when "Order on WhatsApp" is tapped, re-priced from the database |
 | `/`, `/cart` | Redirect to the pilot restaurant (links shared before `/r/<slug>` keep working) |
 
+## Admin
+
+`/admin` is the owner's panel, built for a phone: items (inline prices, sold-out switches,
+drag to reorder, photos from the camera), options, categories, orders and settings (hours,
+WhatsApp number, open/closed switch, logo, accent colour, visibility). Saving refreshes the
+public menu straight away.
+
+- **Login:** the owner enters their email and gets a 6-digit code plus a link
+  (`/auth/confirm`). The code works even when the mail app opens links in another browser.
+- **First login:** a new owner goes through three steps (name, WhatsApp number, first items)
+  and their menu goes live at `/r/<slug>`.
+- **Existing restaurants** (e.g. the seeded pilot) are linked to their owner with the SQL under
+  [Creating a restaurant](#creating-a-restaurant), after the owner has logged in once.
+- **Photos** are resized to 1200px on the phone and stored in the public `item-photos` bucket
+  under `<restaurant_id>/`; Storage policies only let an owner write to their own folder.
+
+Locally, login emails land in Mailpit at http://127.0.0.1:54324. The email templates are
+`supabase/templates/login.html` (wired up in `supabase/config.toml`).
+
+For the hosted project, in the Supabase dashboard:
+1. **Authentication → URL Configuration:** set the Site URL to the production domain.
+2. **Authentication → Email Templates:** paste `supabase/templates/login.html` into both
+   **Magic Link** and **Confirm signup**, with the subject "Your login code".
+3. **Authentication → SMTP:** set up a real email sender; the built-in one is rate-limited to a
+   few emails an hour.
+
 "Order on WhatsApp" opens WhatsApp in the same tap (a window opened after waiting for a server
 response gets popup-blocked) and logs the order in the background under the same reference.
 
@@ -81,7 +107,9 @@ The seed uses `on conflict do nothing`, so pushing it again never overwrites an 
 
 ## Creating a restaurant
 
-Until owner onboarding ships in the admin, a restaurant is added through the seed generator:
+A new owner creates their own: log in at `/admin` with a new email and follow the three steps.
+
+To load a full menu from a file instead (as for the pilot), use the seed generator:
 
 1. Put its menu in a JSON file shaped like `data/menu.json`.
 2. `node scripts/build-seed.mts <file> <slug> <order prefix> [logo url]`, e.g.

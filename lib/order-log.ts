@@ -63,6 +63,9 @@ function snapshotLine(line: CartLine, flags: { sold_out?: true; not_on_menu?: tr
   };
 }
 
+/** One line of orders.items. */
+export type OrderSnapshotLine = ReturnType<typeof snapshotLine>;
+
 /**
  * The orders row for a logged order. Lines are re-priced from the menu rather than trusting the
  * browser. Lines the menu no longer has are kept as sent and flagged, because the customer's

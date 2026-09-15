@@ -104,6 +104,12 @@ beforeAll(async () => {
 
 // By this run's slugs and emails, so a setup that failed halfway still cleans up.
 afterAll(async () => {
+  for (const restaurant of [a, b].filter(Boolean)) {
+    const { data: files } = await admin.storage.from('item-photos').list(restaurant.id);
+    if (files?.length) {
+      await admin.storage.from('item-photos').remove(files.map((file) => `${restaurant.id}/${file.name}`));
+    }
+  }
   await admin.from('restaurants').delete().like('slug', `rls-%-${run}`);
   const { data } = await admin.auth.admin.listUsers({ perPage: 1000 });
   const users = data.users.filter((user) => user.email?.endsWith(`-${run}@example.test`));
@@ -189,6 +195,35 @@ describe('a published restaurant', () => {
     await anon.from('items').update({ price_kobo: 1 }).eq('id', a.itemId);
     await anon.from('items').delete().eq('id', a.itemId);
     expect(await itemAsOwnerA()).toEqual({ name: 'Amala', price_kobo: 50000 });
+  });
+});
+
+describe('item photos', () => {
+  const photo = () => new Blob(['not really a jpeg'], { type: 'image/jpeg' });
+  const upload = (db: SupabaseClient, path: string, upsert = false) =>
+    db.storage.from('item-photos').upload(path, photo(), { contentType: 'image/jpeg', upsert });
+  const ownPhoto = () => `${a.id}/rls-${run}.jpg`;
+
+  it("go into the owner's own restaurant folder", async () => {
+    expect((await upload(ownerA.db, ownPhoto())).error).toBeNull();
+  });
+
+  it('are served publicly', async () => {
+    const { publicUrl } = anon.storage.from('item-photos').getPublicUrl(ownPhoto()).data;
+    expect((await fetch(publicUrl)).status).toBe(200);
+  });
+
+  it("can't be added to, replaced in or deleted from another owner's folder", async () => {
+    expect((await upload(ownerB.db, `${a.id}/intruder-${run}.jpg`)).error).not.toBeNull();
+    expect((await upload(ownerB.db, ownPhoto(), true)).error).not.toBeNull();
+    await ownerB.db.storage.from('item-photos').remove([ownPhoto()]);
+    const { data } = await ownerA.db.storage.from('item-photos').list(a.id);
+    expect(data?.map((file) => file.name)).toEqual([`rls-${run}.jpg`]);
+  });
+
+  it("can't be uploaded by the public or outside a restaurant folder", async () => {
+    expect((await upload(anon, `${a.id}/anon-${run}.jpg`)).error).not.toBeNull();
+    expect((await upload(ownerA.db, `loose-${run}.jpg`)).error).not.toBeNull();
   });
 });
 

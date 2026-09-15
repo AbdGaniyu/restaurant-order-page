@@ -1,0 +1,8 @@
+<h2>Your login code</h2>
+<p>Enter this code on the login page:</p>
+<p style="font-size: 32px; font-weight: bold; letter-spacing: 6px">{{ .Token }}</p>
+<p>
+  Or <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">tap here to log in</a>
+  on this device.
+</p>
+<p>The code and link expire in an hour. If you didn't ask to log in, you can ignore this email.</p>
