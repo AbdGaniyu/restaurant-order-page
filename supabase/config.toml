@@ -242,15 +242,16 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
-# Owner login: the email carries a 6-digit code and a token-hash link (/auth/confirm), so it works
-# even when the mail app opens links in a different browser. New and returning owners get the same email.
+# Owner login: each email carries a 6-digit code and a token-hash link to /auth/confirm?next=/admin,
+# so it works even when the mail app opens links in a different browser. The same templates are
+# pasted into the hosted project's dashboard (see README → Admin).
 [auth.email.template.magic_link]
 subject = "Your login code"
-content_path = "./supabase/templates/login.html"
+content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.confirmation]
-subject = "Your login code"
-content_path = "./supabase/templates/login.html"
+subject = "Confirm your email to set up your menu"
+content_path = "./supabase/templates/confirmation.html"
 
 # Uncomment to customize email template
 # [auth.email.template.invite]

@@ -55,15 +55,52 @@ public menu straight away.
 - **Photos** are resized to 1200px on the phone and stored in the public `item-photos` bucket
   under `<restaurant_id>/`; Storage policies only let an owner write to their own folder.
 
-Locally, login emails land in Mailpit at http://127.0.0.1:54324. The email templates are
-`supabase/templates/login.html` (wired up in `supabase/config.toml`).
+Locally, login emails land in Mailpit at http://127.0.0.1:54324, using the templates below
+(`supabase/templates/`, wired up in `supabase/config.toml`).
 
 For the hosted project, in the Supabase dashboard:
-1. **Authentication → URL Configuration:** set the Site URL to the production domain.
-2. **Authentication → Email Templates:** paste `supabase/templates/login.html` into both
-   **Magic Link** and **Confirm signup**, with the subject "Your login code".
+1. **Authentication → URL Configuration:** set the Site URL to the production domain
+   (e.g. `https://menu.example.com`). The templates build their links from it.
+2. **Authentication → Email Templates:** paste the two templates below.
 3. **Authentication → SMTP:** set up a real email sender; the built-in one is rate-limited to a
    few emails an hour.
+
+### Login email templates
+
+Both emails carry the 6-digit code (`{{ .Token }}`) and a link to
+`/auth/confirm?token_hash=…&type=email&next=/admin`. The link verifies the token and redirects
+to `/admin`; `next` is only honoured for `/admin` paths. Returning owners get **Magic Link**;
+a brand-new email gets **Confirm signup** when email confirmations are on (the hosted default).
+Keep these in sync with the files in `supabase/templates/`.
+
+**Magic Link** (`supabase/templates/magic_link.html`). Subject: `Your login code`
+
+```html
+<h2>Log in to your menu admin</h2>
+<p>Enter this code on the login page:</p>
+<p style="font-size: 32px; font-weight: bold; letter-spacing: 6px; margin: 16px 0">{{ .Token }}</p>
+<p>
+  Or <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next=/admin">tap here to log in</a>.
+  It opens your admin at {{ .SiteURL }}/admin.
+</p>
+<p>
+  The code and link work once and expire in an hour. If you didn't ask to log in, ignore this email;
+  nobody can get in without it.
+</p>
+```
+
+**Confirm signup** (`supabase/templates/confirmation.html`). Subject: `Confirm your email to set up your menu`
+
+```html
+<h2>Welcome! Let's set up your menu</h2>
+<p>Enter this code on the login page to confirm your email:</p>
+<p style="font-size: 32px; font-weight: bold; letter-spacing: 6px; margin: 16px 0">{{ .Token }}</p>
+<p>
+  Or <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next=/admin">tap here to confirm and continue</a>.
+  You'll set up your restaurant in three short steps.
+</p>
+<p>The code and link work once and expire in an hour. If you didn't sign up, ignore this email.</p>
+```
 
 "Order on WhatsApp" opens WhatsApp in the same tap (a window opened after waiting for a server
 response gets popup-blocked) and logs the order in the background under the same reference.

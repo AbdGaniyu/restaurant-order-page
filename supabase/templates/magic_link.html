@@ -1,0 +1,11 @@
+<h2>Log in to your menu admin</h2>
+<p>Enter this code on the login page:</p>
+<p style="font-size: 32px; font-weight: bold; letter-spacing: 6px; margin: 16px 0">{{ .Token }}</p>
+<p>
+  Or <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next=/admin">tap here to log in</a>.
+  It opens your admin at {{ .SiteURL }}/admin.
+</p>
+<p>
+  The code and link work once and expire in an hour. If you didn't ask to log in, ignore this email;
+  nobody can get in without it.
+</p>
