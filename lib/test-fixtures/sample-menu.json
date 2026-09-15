@@ -1,0 +1,154 @@
+{
+  "business_settings": {
+    "id": "default",
+    "name": "Yakoyo Abula Joint",
+    "whatsapp_number": "2347025973433",
+    "address": null,
+    "maps_url": null,
+    "brand_color": "#F96406",
+    "opening_hours": {
+      "mon": [["07:30", "23:30"]],
+      "tue": [["07:30", "23:30"]],
+      "wed": [["07:30", "23:30"]],
+      "thu": [["07:30", "23:30"]],
+      "fri": [["07:30", "23:30"]],
+      "sat": [["07:30", "23:30"]],
+      "sun": [["07:30", "23:30"]]
+    },
+    "delivery_hours": {
+      "mon": [["08:30", "20:00"]],
+      "tue": [["08:30", "20:00"]],
+      "wed": [["08:30", "20:00"]],
+      "thu": [["08:30", "20:00"]],
+      "fri": [["08:30", "20:00"]],
+      "sat": [["08:30", "20:00"]],
+      "sun": [["08:30", "20:00"]]
+    },
+    "accepts_delivery": true,
+    "accepts_pickup": true,
+    "is_open_override": null,
+    "delivery_fee_tiers": [200, 2500],
+    "packaging": { "small_pack": 100, "big_pack": 300, "two_litre_pack": null }
+  },
+
+  "categories": [
+    { "id": "cat-swallow", "name": "Swallow", "slug": "swallow", "sort_order": 1, "is_active": true },
+    { "id": "cat-rice-beans", "name": "Rice & Beans", "slug": "rice-beans", "sort_order": 2, "is_active": true },
+    { "id": "cat-sides", "name": "Sides", "slug": "sides", "sort_order": 3, "is_active": true },
+    { "id": "cat-proteins", "name": "Proteins", "slug": "proteins", "sort_order": 4, "is_active": true },
+    { "id": "cat-fish", "name": "Fish", "slug": "fish", "sort_order": 5, "is_active": true },
+    { "id": "cat-shawarma", "name": "Shawarma", "slug": "shawarma", "sort_order": 6, "is_active": true },
+    { "id": "cat-drinks", "name": "Drinks", "slug": "drinks", "sort_order": 7, "is_active": true }
+  ],
+
+  "menu_items": [
+    { "id": "item-amala", "category_id": "cat-swallow", "name": "Amala", "description": "Yam flour swallow with your choice of soup.", "price": 500, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": "Amala" },
+    { "id": "item-eba-semo", "category_id": "cat-swallow", "name": "Eba or Semo", "description": "Cassava or semolina swallow with your choice of soup.", "price": 500, "image_url": null, "is_available": true, "sort_order": 2, "pos_name": "Eba/Semo" },
+    { "id": "item-pounded-yam", "category_id": "cat-swallow", "name": "Pounded Yam", "description": "Freshly pounded yam with your choice of soup.", "price": 800, "image_url": null, "is_available": true, "sort_order": 3, "pos_name": "Pounded Yam" },
+
+    { "id": "item-jollof-rice", "category_id": "cat-rice-beans", "name": "Jollof Rice", "description": "Priced per scoop.", "price": 500, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": "Jollof Rice" },
+    { "id": "item-white-rice", "category_id": "cat-rice-beans", "name": "White Rice", "description": "Priced per scoop.", "price": 500, "image_url": null, "is_available": true, "sort_order": 2, "pos_name": "White Rice" },
+    { "id": "item-fried-rice", "category_id": "cat-rice-beans", "name": "Fried Rice", "description": "Priced per scoop.", "price": 500, "image_url": null, "is_available": true, "sort_order": 3, "pos_name": "Fried Rice" },
+    { "id": "item-ewa-agoyin", "category_id": "cat-rice-beans", "name": "Ewa Agoyin", "description": "Mashed beans with Agoyin pepper sauce. Priced per scoop.", "price": 500, "image_url": null, "is_available": true, "sort_order": 4, "pos_name": "Ewa Igoyin" },
+    { "id": "item-agidi", "category_id": "cat-rice-beans", "name": "Agidi", "description": "Corn pap set in leaves — goes with Ewa Agoyin.", "price": 200, "image_url": null, "is_available": true, "sort_order": 5, "pos_name": "Agidi" },
+
+    { "id": "item-plantain", "category_id": "cat-sides", "name": "Plantain", "description": "Fried ripe plantain (dodo).", "price": 500, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "item-plantain-moimoi", "category_id": "cat-sides", "name": "Plantain or Moi-Moi", "description": "One portion of either.", "price": 500, "image_url": null, "is_available": true, "sort_order": 2, "pos_name": "Plantain/Moi-Moi" },
+    { "id": "item-macaroni", "category_id": "cat-sides", "name": "Macaroni", "description": null, "price": 700, "image_url": null, "is_available": true, "sort_order": 3, "pos_name": "Macaroni" },
+
+    { "id": "item-beef", "category_id": "cat-proteins", "name": "Beef", "description": "Per piece.", "price": 500, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": "Beef" },
+    { "id": "item-ponmo", "category_id": "cat-proteins", "name": "Ponmo", "description": "Per piece.", "price": 500, "image_url": null, "is_available": true, "sort_order": 2, "pos_name": "Ponmo" },
+    { "id": "item-assorted", "category_id": "cat-proteins", "name": "Assorted", "description": "Per piece.", "price": 500, "image_url": null, "is_available": true, "sort_order": 3, "pos_name": "Assorted" },
+    { "id": "item-goat-meat", "category_id": "cat-proteins", "name": "Goat meat", "description": "Per piece.", "price": 1500, "image_url": null, "is_available": true, "sort_order": 4, "pos_name": "Goat Meat" },
+    { "id": "item-chicken-turkey", "category_id": "cat-proteins", "name": "Chicken or Turkey", "description": "Fried and peppered.", "price": 2000, "image_url": null, "is_available": true, "sort_order": 5, "pos_name": null },
+    { "id": "item-ponmo-ijebu", "category_id": "cat-proteins", "name": "Ponmo Ijebu", "description": "Thick Ijebu-style cow skin.", "price": 1000, "image_url": null, "is_available": true, "sort_order": 6, "pos_name": null },
+    { "id": "item-asun", "category_id": "cat-proteins", "name": "Asun", "description": "Peppered grilled goat meat.", "price": 2000, "image_url": null, "is_available": true, "sort_order": 7, "pos_name": null },
+
+    { "id": "item-fresh-fish", "category_id": "cat-fish", "name": "Fresh Fish", "description": "Fresh catfish in pepper sauce. Choose your size.", "price": 3000, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": null },
+
+    { "id": "item-chicken-shawarma", "category_id": "cat-shawarma", "name": "Chicken Shawarma", "description": null, "price": 3000, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "item-beef-shawarma", "category_id": "cat-shawarma", "name": "Beef Shawarma", "description": null, "price": 3000, "image_url": null, "is_available": false, "sort_order": 2, "pos_name": null },
+
+    { "id": "item-water", "category_id": "cat-drinks", "name": "Bottled water", "description": null, "price": 300, "image_url": null, "is_available": true, "sort_order": 1, "pos_name": "Bottled Water" },
+    { "id": "item-coke-pet", "category_id": "cat-drinks", "name": "Coke (PET)", "description": null, "price": 500, "image_url": null, "is_available": true, "sort_order": 2, "pos_name": "Coke Pet" },
+    { "id": "item-malt", "category_id": "cat-drinks", "name": "Malt", "description": null, "price": 600, "image_url": null, "is_available": true, "sort_order": 3, "pos_name": "Malt" }
+  ],
+
+  "option_groups": [
+    { "id": "grp-eba-semo", "name": "Eba or Semo", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-soup", "name": "Choose soup", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 1 },
+    { "id": "grp-protein-addons", "name": "Protein add-ons", "selection_type": "multi", "is_required": false, "min_select": 0, "max_select": 5, "sort_order": 2 },
+    { "id": "grp-plantain-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-plantain-moimoi", "name": "Plantain or Moi-Moi", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-chicken-turkey-choice", "name": "Chicken or turkey", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-chicken-turkey-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 1 },
+    { "id": "grp-ponmo-ijebu-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-asun-portion", "name": "Choose portion", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-fresh-fish-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-chicken-shawarma-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 },
+    { "id": "grp-beef-shawarma-size", "name": "Choose size", "selection_type": "single", "is_required": true, "min_select": 1, "max_select": 1, "sort_order": 0 }
+  ],
+
+  "options": [
+    { "id": "opt-eba", "option_group_id": "grp-eba-semo", "name": "Eba", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "opt-semo", "option_group_id": "grp-eba-semo", "name": "Semo", "price_delta": 0, "is_available": true, "sort_order": 2, "pos_name": null },
+
+    { "id": "opt-soup-abula", "option_group_id": "grp-soup", "name": "Ewedu & Gbegiri (Abula)", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "opt-soup-ewedu", "option_group_id": "grp-soup", "name": "Ewedu", "price_delta": 0, "is_available": true, "sort_order": 2, "pos_name": null },
+    { "id": "opt-soup-gbegiri", "option_group_id": "grp-soup", "name": "Gbegiri", "price_delta": 0, "is_available": true, "sort_order": 3, "pos_name": null },
+
+    { "id": "opt-addon-goat", "option_group_id": "grp-protein-addons", "name": "Goat meat", "price_delta": 1500, "is_available": true, "sort_order": 1, "pos_name": "Goat Meat" },
+    { "id": "opt-addon-beef", "option_group_id": "grp-protein-addons", "name": "Beef", "price_delta": 500, "is_available": true, "sort_order": 2, "pos_name": "Beef" },
+    { "id": "opt-addon-ponmo", "option_group_id": "grp-protein-addons", "name": "Ponmo", "price_delta": 500, "is_available": true, "sort_order": 3, "pos_name": "Ponmo" },
+    { "id": "opt-addon-assorted", "option_group_id": "grp-protein-addons", "name": "Assorted", "price_delta": 500, "is_available": true, "sort_order": 4, "pos_name": "Assorted" },
+    { "id": "opt-addon-egg", "option_group_id": "grp-protein-addons", "name": "Boiled egg", "price_delta": 300, "is_available": true, "sort_order": 5, "pos_name": "Egg" },
+
+    { "id": "opt-plantain-500", "option_group_id": "grp-plantain-size", "name": "500", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Plantain 500" },
+    { "id": "opt-plantain-1k", "option_group_id": "grp-plantain-size", "name": "1K", "price_delta": 500, "is_available": true, "sort_order": 2, "pos_name": "Plantain 1K" },
+
+    { "id": "opt-pm-plantain", "option_group_id": "grp-plantain-moimoi", "name": "Plantain", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "opt-pm-moimoi", "option_group_id": "grp-plantain-moimoi", "name": "Moi-Moi", "price_delta": 0, "is_available": true, "sort_order": 2, "pos_name": null },
+
+    { "id": "opt-ct-chicken", "option_group_id": "grp-chicken-turkey-choice", "name": "Chicken", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": null },
+    { "id": "opt-ct-turkey", "option_group_id": "grp-chicken-turkey-choice", "name": "Turkey", "price_delta": 0, "is_available": true, "sort_order": 2, "pos_name": null },
+    { "id": "opt-ct-2k", "option_group_id": "grp-chicken-turkey-size", "name": "2K", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Chicken/Turkey 2K" },
+    { "id": "opt-ct-3k", "option_group_id": "grp-chicken-turkey-size", "name": "3K", "price_delta": 1000, "is_available": true, "sort_order": 2, "pos_name": "Chicken/Turkey 3K" },
+
+    { "id": "opt-ponmo-ijebu-1k", "option_group_id": "grp-ponmo-ijebu-size", "name": "1K", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Ponmo Ijebu 1K" },
+    { "id": "opt-ponmo-ijebu-2k", "option_group_id": "grp-ponmo-ijebu-size", "name": "2K", "price_delta": 1000, "is_available": true, "sort_order": 2, "pos_name": "Ponmo Ijebu 2K" },
+
+    { "id": "opt-asun-half", "option_group_id": "grp-asun-portion", "name": "Half", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Asun Half" },
+    { "id": "opt-asun-full", "option_group_id": "grp-asun-portion", "name": "Full", "price_delta": 2000, "is_available": true, "sort_order": 2, "pos_name": "Asun Full" },
+
+    { "id": "opt-fish-3k", "option_group_id": "grp-fresh-fish-size", "name": "3K", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Fresh Fish 3K" },
+    { "id": "opt-fish-4k", "option_group_id": "grp-fresh-fish-size", "name": "4K", "price_delta": 1000, "is_available": true, "sort_order": 2, "pos_name": "Fresh Fish 4K" },
+    { "id": "opt-fish-5k", "option_group_id": "grp-fresh-fish-size", "name": "5K", "price_delta": 2000, "is_available": true, "sort_order": 3, "pos_name": "Fresh Fish 5K" },
+    { "id": "opt-fish-6k", "option_group_id": "grp-fresh-fish-size", "name": "6K", "price_delta": 3000, "is_available": true, "sort_order": 4, "pos_name": "Fresh Fish 6K" },
+    { "id": "opt-fish-7k", "option_group_id": "grp-fresh-fish-size", "name": "7K", "price_delta": 4000, "is_available": false, "sort_order": 5, "pos_name": "Fresh Fish 7K" },
+
+    { "id": "opt-chicken-shawarma-regular", "option_group_id": "grp-chicken-shawarma-size", "name": "Regular", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Chicken Shawarma Regular" },
+    { "id": "opt-chicken-shawarma-large", "option_group_id": "grp-chicken-shawarma-size", "name": "Large", "price_delta": 1000, "is_available": true, "sort_order": 2, "pos_name": "Chicken Shawarma Large" },
+
+    { "id": "opt-beef-shawarma-regular", "option_group_id": "grp-beef-shawarma-size", "name": "Regular", "price_delta": 0, "is_available": true, "sort_order": 1, "pos_name": "Beef Shawarma Regular" },
+    { "id": "opt-beef-shawarma-large", "option_group_id": "grp-beef-shawarma-size", "name": "Large", "price_delta": 1000, "is_available": true, "sort_order": 2, "pos_name": "Beef Shawarma Large" }
+  ],
+
+  "menu_item_option_groups": [
+    { "menu_item_id": "item-amala", "option_group_id": "grp-soup" },
+    { "menu_item_id": "item-amala", "option_group_id": "grp-protein-addons" },
+    { "menu_item_id": "item-eba-semo", "option_group_id": "grp-eba-semo" },
+    { "menu_item_id": "item-eba-semo", "option_group_id": "grp-soup" },
+    { "menu_item_id": "item-eba-semo", "option_group_id": "grp-protein-addons" },
+    { "menu_item_id": "item-pounded-yam", "option_group_id": "grp-soup" },
+    { "menu_item_id": "item-pounded-yam", "option_group_id": "grp-protein-addons" },
+    { "menu_item_id": "item-plantain", "option_group_id": "grp-plantain-size" },
+    { "menu_item_id": "item-plantain-moimoi", "option_group_id": "grp-plantain-moimoi" },
+    { "menu_item_id": "item-chicken-turkey", "option_group_id": "grp-chicken-turkey-choice" },
+    { "menu_item_id": "item-chicken-turkey", "option_group_id": "grp-chicken-turkey-size" },
+    { "menu_item_id": "item-ponmo-ijebu", "option_group_id": "grp-ponmo-ijebu-size" },
+    { "menu_item_id": "item-asun", "option_group_id": "grp-asun-portion" },
+    { "menu_item_id": "item-fresh-fish", "option_group_id": "grp-fresh-fish-size" },
+    { "menu_item_id": "item-chicken-shawarma", "option_group_id": "grp-chicken-shawarma-size" },
+    { "menu_item_id": "item-beef-shawarma", "option_group_id": "grp-beef-shawarma-size" }
+  ]
+}

@@ -1,0 +1,3503 @@
+{
+  "business_settings": {
+    "id": "default",
+    "name": "Yàkoyó Abula Joint",
+    "whatsapp_number": "2347025973433",
+    "address": "KM 43 Lekki-Epe Expressway, Oko-Ado, Sangotedo, Lagos State",
+    "maps_url": "https://maps.app.goo.gl/5ksj53AMKEb1c8XV7",
+    "brand_color": "#F96406",
+    "opening_hours": {
+      "mon": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "tue": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "wed": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "thu": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "fri": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "sat": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ],
+      "sun": [
+        [
+          "07:30",
+          "23:30"
+        ]
+      ]
+    },
+    "delivery_hours": {
+      "mon": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "tue": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "wed": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "thu": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "fri": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "sun": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ]
+    },
+    "accepts_delivery": true,
+    "accepts_pickup": true,
+    "is_open_override": null,
+    "delivery_fee_tiers": [
+      200,
+      500,
+      1000,
+      1500,
+      2000,
+      2500
+    ],
+    "packaging": {
+      "small_pack": 100,
+      "big_pack": 300,
+      "two_litre_pack": 2000
+    }
+  },
+  "categories": [
+    {
+      "id": "combos",
+      "name": "Yàkoyó Combos",
+      "slug": "combos",
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "id": "swallow",
+      "name": "Swallow",
+      "slug": "swallow",
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "id": "soups",
+      "name": "Soups & Sauces",
+      "slug": "soups",
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "id": "extra-soup",
+      "name": "Extra Soup",
+      "slug": "extra-soup",
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "id": "meat",
+      "name": "Meat & Proteins",
+      "slug": "meat",
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "id": "fish",
+      "name": "Fish & Seafood",
+      "slug": "fish",
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "slug": "rice",
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "id": "pasta",
+      "name": "Spaghetti & Macaroni",
+      "slug": "pasta",
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "id": "beans-yam",
+      "name": "Beans & Yam",
+      "slug": "beans-yam",
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "id": "sides",
+      "name": "Sides & Extras",
+      "slug": "sides",
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "id": "shawarma",
+      "name": "Shawarma",
+      "slug": "shawarma",
+      "sort_order": 11,
+      "is_active": true
+    },
+    {
+      "id": "snacks",
+      "name": "Snacks",
+      "slug": "snacks",
+      "sort_order": 12,
+      "is_active": true
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "slug": "bread",
+      "sort_order": 13,
+      "is_active": true
+    },
+    {
+      "id": "soft-drinks",
+      "name": "Soft Drinks & Water",
+      "slug": "soft-drinks",
+      "sort_order": 14,
+      "is_active": true
+    },
+    {
+      "id": "malt-energy",
+      "name": "Malt & Energy Drinks",
+      "slug": "malt-energy",
+      "sort_order": 15,
+      "is_active": true
+    },
+    {
+      "id": "juice-yoghurt",
+      "name": "Juice, Yoghurt & Parfait",
+      "slug": "juice-yoghurt",
+      "sort_order": 16,
+      "is_active": true
+    },
+    {
+      "id": "soup-packs",
+      "name": "Soup Packs (Bulk)",
+      "slug": "soup-packs",
+      "sort_order": 17,
+      "is_active": true
+    }
+  ],
+  "menu_items": [
+    {
+      "id": "combo-amala-1",
+      "category_id": "combos",
+      "name": "Amala Combo",
+      "description": "Amala with gbegiri & ewedu, 2 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Amala Combo (Gbegiri & Ewedu + 2 Beef + Water)"
+    },
+    {
+      "id": "combo-amala-2",
+      "category_id": "combos",
+      "name": "Amala Combo 2",
+      "description": "Amala with gbegiri & ewedu, goat meat, beef or ponmo, and water",
+      "price": 5000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Amala Combo 2 (Gbegiri & Ewedu + Goat Meat + Beef/Ponmo + Water)"
+    },
+    {
+      "id": "combo-eba-semo-1",
+      "category_id": "combos",
+      "name": "Eba/Semo Combo 1",
+      "description": "Vegetable soup, 2 beef, and water",
+      "price": 3500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Eba/Semo Combo 1 (Vegetable + 2 Beef + Water)"
+    },
+    {
+      "id": "combo-eba-semo-2",
+      "category_id": "combos",
+      "name": "Eba/Semo Combo 2",
+      "description": "Gbegiri & ewedu, 2 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Eba/Semo Combo 2 (Gbegiri & Ewedu + 2 Beef + Water)"
+    },
+    {
+      "id": "combo-fufu-1",
+      "category_id": "combos",
+      "name": "Fufu Combo 1",
+      "description": "Vegetable soup, 2 beef, 1 ponmo, and water",
+      "price": 3500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Fufu Combo 1 (Vegetable + 2 Beef + 1 Ponmo + Water)"
+    },
+    {
+      "id": "combo-fufu-2",
+      "category_id": "combos",
+      "name": "Fufu Combo 2",
+      "description": "Mixed okro, 2 beef, 1 ponmo, and water",
+      "price": 3500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Fufu Combo 2 (Mixed Okro + 2 Beef + 1 Ponmo + Water)"
+    },
+    {
+      "id": "combo-jollof",
+      "category_id": "combos",
+      "name": "Jollof Combo",
+      "description": "Jollof rice, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Jollof Combo (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-jollof-chicken",
+      "category_id": "combos",
+      "name": "Jollof & Chicken Combo",
+      "description": "Jollof rice with chicken, 1 beef, and water",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Jollof & Chicken Combo (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-jollof-fish",
+      "category_id": "combos",
+      "name": "Jollof & Fish Combo",
+      "description": "Jollof rice, 1 panla, and water",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Jollof & Fish Combo (Plantain/Moi-Moi + 1 Panla + Water)"
+    },
+    {
+      "id": "combo-jollof-turkey",
+      "category_id": "combos",
+      "name": "Jollof & Turkey Combo",
+      "description": "Jollof rice with turkey and water",
+      "price": 5000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Jollof & Turkey Combo (Plantain/Moi-Moi + Turkey + Water)"
+    },
+    {
+      "id": "combo-jollof-fried-beef",
+      "category_id": "combos",
+      "name": "Jollof & Fried Rice Combo",
+      "description": "Jollof & fried rice, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Jollof & Fried Rice (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-jollof-fried-croaker",
+      "category_id": "combos",
+      "name": "Jollof & Fried Rice Combo (Croaker)",
+      "description": "Jollof & fried rice with croaker and water",
+      "price": 5000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Jollof & Fried Rice (Plantain/Moi-Moi + Croaker + Water)"
+    },
+    {
+      "id": "combo-jollof-fried-turkey",
+      "category_id": "combos",
+      "name": "Jollof & Fried Rice Combo (Turkey)",
+      "description": "Jollof & fried rice with turkey and water",
+      "price": 5000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Jollof & Fried Rice (Plantain/Moi-Moi + Turkey + Water)"
+    },
+    {
+      "id": "combo-white-rice",
+      "category_id": "combos",
+      "name": "White Rice Combo",
+      "description": "White rice, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": "White Rice Combo (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-coconut-rice",
+      "category_id": "combos",
+      "name": "Coconut Rice Combo",
+      "description": "Coconut rice, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Coconut Rice Combo (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-rice-beans",
+      "category_id": "combos",
+      "name": "Rice & Beans Combo",
+      "description": "Rice & beans, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Rice & Beans Combo (Plantain/Moi-Moi + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-ewa-agoyin",
+      "category_id": "combos",
+      "name": "Ewa Agoyin Combo",
+      "description": "Ewa agoyin with plantain, 1 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 17,
+      "pos_name": "Ewa Agoyin Combo (Plantain + 1 Beef + Water)"
+    },
+    {
+      "id": "combo-porridge-beans",
+      "category_id": "combos",
+      "name": "Porridge Beans Combo",
+      "description": "Porridge beans with plantain, 2 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 18,
+      "pos_name": "Porridge Beans + Plantain + 2 Beef & Water"
+    },
+    {
+      "id": "combo-porridge-yam",
+      "category_id": "combos",
+      "name": "Porridge Yam Combo",
+      "description": "Porridge yam, 2 beef, and water",
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 19,
+      "pos_name": "Porridge Yam + Moi-Moi/Plantain + 2 Beef & Water"
+    },
+    {
+      "id": "swallow-amala",
+      "category_id": "swallow",
+      "name": "Amala",
+      "description": "Per portion — add a soup and protein",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Amala"
+    },
+    {
+      "id": "swallow-eba",
+      "category_id": "swallow",
+      "name": "Eba",
+      "description": "Per portion — add a soup and protein",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Eba"
+    },
+    {
+      "id": "swallow-semo",
+      "category_id": "swallow",
+      "name": "Semo",
+      "description": "Per portion — add a soup and protein",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Semo"
+    },
+    {
+      "id": "swallow-fufu",
+      "category_id": "swallow",
+      "name": "Fufu",
+      "description": "Per portion — add a soup and protein",
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Fufu"
+    },
+    {
+      "id": "swallow-pounded-yam",
+      "category_id": "swallow",
+      "name": "Pounded Yam",
+      "description": "Per portion — add a soup and protein",
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Pounded yam"
+    },
+    {
+      "id": "swallow-tuwo",
+      "category_id": "swallow",
+      "name": "Tuwo",
+      "description": "Per portion — add a soup and protein",
+      "price": 200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Tuwo"
+    },
+    {
+      "id": "swallow-wheat",
+      "category_id": "swallow",
+      "name": "Wheat",
+      "description": "Per portion — add a soup and protein",
+      "price": 200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Wheat"
+    },
+    {
+      "id": "swallow-agidi",
+      "category_id": "swallow",
+      "name": "Agidi",
+      "description": "Per portion — add a soup and protein",
+      "price": 200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Agidi"
+    },
+    {
+      "id": "soup-ewedu",
+      "category_id": "soups",
+      "name": "Ewedu",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Ewedu"
+    },
+    {
+      "id": "soup-gbegiri",
+      "category_id": "soups",
+      "name": "Gbegiri",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Gbegiri"
+    },
+    {
+      "id": "soup-egusi",
+      "category_id": "soups",
+      "name": "Egusi",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Egusi"
+    },
+    {
+      "id": "soup-vegetable",
+      "category_id": "soups",
+      "name": "Vegetable",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Vegetable"
+    },
+    {
+      "id": "soup-special-efo-riro",
+      "category_id": "soups",
+      "name": "Special Efo Riro",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Special Efo Riro"
+    },
+    {
+      "id": "soup-okro",
+      "category_id": "soups",
+      "name": "Okro",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Okro"
+    },
+    {
+      "id": "soup-mixed-okro",
+      "category_id": "soups",
+      "name": "Mixed Okro",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Mixed okro"
+    },
+    {
+      "id": "soup-sea-food-okro",
+      "category_id": "soups",
+      "name": "Sea Food Okro",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Sea food okro"
+    },
+    {
+      "id": "soup-ogbono",
+      "category_id": "soups",
+      "name": "Ogbono",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Ogbono"
+    },
+    {
+      "id": "soup-oha",
+      "category_id": "soups",
+      "name": "Oha",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Oha"
+    },
+    {
+      "id": "soup-afang",
+      "category_id": "soups",
+      "name": "Afang",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Afang"
+    },
+    {
+      "id": "soup-edikaikong",
+      "category_id": "soups",
+      "name": "Edikaikong",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Edikaikong"
+    },
+    {
+      "id": "soup-bitterleaf",
+      "category_id": "soups",
+      "name": "Bitterleaf",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Bitterleaf"
+    },
+    {
+      "id": "soup-banga-soup",
+      "category_id": "soups",
+      "name": "Banga Soup",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": "Banga Soup"
+    },
+    {
+      "id": "soup-fish-sauce",
+      "category_id": "soups",
+      "name": "Fish Sauce",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Fish sauce"
+    },
+    {
+      "id": "soup-vegetable-fish-sauce",
+      "category_id": "soups",
+      "name": "Vegetable Fish Sauce",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Vegetable Fish Sauce"
+    },
+    {
+      "id": "soup-ofada-sauce",
+      "category_id": "soups",
+      "name": "Ofada Sauce",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 17,
+      "pos_name": "Ofada sauce"
+    },
+    {
+      "id": "soup-special-sauce",
+      "category_id": "soups",
+      "name": "Special Sauce",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 18,
+      "pos_name": "Special Sauce"
+    },
+    {
+      "id": "soup-stew",
+      "category_id": "soups",
+      "name": "Stew",
+      "description": null,
+      "price": 300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 19,
+      "pos_name": "Stew"
+    },
+    {
+      "id": "soup-thai-sauce",
+      "category_id": "soups",
+      "name": "Thai Sauce",
+      "description": null,
+      "price": 6000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 20,
+      "pos_name": "Thai Sauce"
+    },
+    {
+      "id": "xtra-ewedu",
+      "category_id": "extra-soup",
+      "name": "Extra Ewedu",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Ewedu Xtra"
+    },
+    {
+      "id": "xtra-gbegiri",
+      "category_id": "extra-soup",
+      "name": "Extra Gbegiri",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Gbegiri Xtra"
+    },
+    {
+      "id": "xtra-egusi",
+      "category_id": "extra-soup",
+      "name": "Extra Egusi",
+      "description": "Extra portion of soup",
+      "price": 400,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Egusi Xtra"
+    },
+    {
+      "id": "xtra-vegetable",
+      "category_id": "extra-soup",
+      "name": "Extra Vegetable",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Vegetable Xtra"
+    },
+    {
+      "id": "xtra-okro",
+      "category_id": "extra-soup",
+      "name": "Extra Okro",
+      "description": "Extra portion of soup",
+      "price": 300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Okro Xtra"
+    },
+    {
+      "id": "xtra-mixed-okro",
+      "category_id": "extra-soup",
+      "name": "Extra Mixed Okro",
+      "description": "Extra portion of soup",
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Mixed okro Xtra"
+    },
+    {
+      "id": "xtra-sea-food-okro",
+      "category_id": "extra-soup",
+      "name": "Extra Sea Food Okro",
+      "description": "Extra portion of soup",
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Sea food okro Xtra"
+    },
+    {
+      "id": "xtra-ogbono",
+      "category_id": "extra-soup",
+      "name": "Extra Ogbono",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Ogbono Xtra"
+    },
+    {
+      "id": "xtra-oha",
+      "category_id": "extra-soup",
+      "name": "Extra Oha",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Oha Xtra"
+    },
+    {
+      "id": "xtra-afang",
+      "category_id": "extra-soup",
+      "name": "Extra Afang",
+      "description": "Extra portion of soup",
+      "price": 600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Afang Xtra"
+    },
+    {
+      "id": "xtra-edikaikong",
+      "category_id": "extra-soup",
+      "name": "Extra Edikaikong",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Edikaikong Xtra"
+    },
+    {
+      "id": "xtra-bitterleaf",
+      "category_id": "extra-soup",
+      "name": "Extra Bitterleaf",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Bitterleaf Xtra"
+    },
+    {
+      "id": "xtra-banga-soup",
+      "category_id": "extra-soup",
+      "name": "Extra Banga Soup",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Banga Soup Xtra"
+    },
+    {
+      "id": "xtra-fish-sauce",
+      "category_id": "extra-soup",
+      "name": "Extra Fish Sauce",
+      "description": "Extra portion of soup",
+      "price": 1200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": "Fish sauce Xtra"
+    },
+    {
+      "id": "xtra-ofada-sauce",
+      "category_id": "extra-soup",
+      "name": "Extra Ofada Sauce",
+      "description": "Extra portion of soup",
+      "price": 600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Ofada sauce Xtra"
+    },
+    {
+      "id": "xtra-stew",
+      "category_id": "extra-soup",
+      "name": "Extra Stew",
+      "description": "Extra portion of soup",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Stew Extra"
+    },
+    {
+      "id": "meat-beef",
+      "category_id": "meat",
+      "name": "Beef",
+      "description": "Per piece",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Beef"
+    },
+    {
+      "id": "meat-assorted",
+      "category_id": "meat",
+      "name": "Assorted",
+      "description": "Per piece",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Assorted"
+    },
+    {
+      "id": "meat-ponmo",
+      "category_id": "meat",
+      "name": "Ponmo",
+      "description": "Per piece",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Ponmo"
+    },
+    {
+      "id": "meat-ponmo-ijebu",
+      "category_id": "meat",
+      "name": "Ponmo Ijebu",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": null
+    },
+    {
+      "id": "meat-goat",
+      "category_id": "meat",
+      "name": "Goat Meat",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Goat meat"
+    },
+    {
+      "id": "meat-asun",
+      "category_id": "meat",
+      "name": "Asun",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Asun"
+    },
+    {
+      "id": "meat-chicken-turkey",
+      "category_id": "meat",
+      "name": "Chicken / Turkey",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": null
+    },
+    {
+      "id": "meat-chicken-wings",
+      "category_id": "meat",
+      "name": "Chicken Wings",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": null
+    },
+    {
+      "id": "meat-gizzard",
+      "category_id": "meat",
+      "name": "Gizzard",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Gizzard 1.5K"
+    },
+    {
+      "id": "meat-gizdodo",
+      "category_id": "meat",
+      "name": "Gizdodo",
+      "description": "Gizzard and plantain",
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Gizdodo"
+    },
+    {
+      "id": "meat-cowleg",
+      "category_id": "meat",
+      "name": "Cow Leg / Cow Head",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Cowleg/Cowhead"
+    },
+    {
+      "id": "meat-snail",
+      "category_id": "meat",
+      "name": "Snail",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Snail"
+    },
+    {
+      "id": "meat-big-snail",
+      "category_id": "meat",
+      "name": "Big Snail",
+      "description": null,
+      "price": 6000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Big Snail"
+    },
+    {
+      "id": "fish-fresh",
+      "category_id": "fish",
+      "name": "Fresh Fish",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "fish-panla-titus",
+      "category_id": "fish",
+      "name": "Panla / Titus",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "fish-eja-kika",
+      "category_id": "fish",
+      "name": "Eja Kika",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": null
+    },
+    {
+      "id": "fish-eja-yoyo",
+      "category_id": "fish",
+      "name": "Eja Yoyo",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Eja Yoyo"
+    },
+    {
+      "id": "fish-shrimps",
+      "category_id": "fish",
+      "name": "Shrimps",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Shrimps"
+    },
+    {
+      "id": "rice-jollof-rice",
+      "category_id": "rice",
+      "name": "Jollof Rice",
+      "description": "Per scoop",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Jollof rice"
+    },
+    {
+      "id": "rice-white-rice",
+      "category_id": "rice",
+      "name": "White Rice",
+      "description": "Per scoop",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "White rice"
+    },
+    {
+      "id": "rice-fried-rice",
+      "category_id": "rice",
+      "name": "Fried Rice",
+      "description": "Per scoop",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Fried rice"
+    },
+    {
+      "id": "rice-coconut-rice",
+      "category_id": "rice",
+      "name": "Coconut Rice",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": null
+    },
+    {
+      "id": "rice-native-rice",
+      "category_id": "rice",
+      "name": "Native Rice",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": null
+    },
+    {
+      "id": "rice-ofada-rice",
+      "category_id": "rice",
+      "name": "Ofada Rice",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": null
+    },
+    {
+      "id": "rice-wanke-rice",
+      "category_id": "rice",
+      "name": "Wanke Rice",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": null
+    },
+    {
+      "id": "rice-mixed-rice-beans",
+      "category_id": "rice",
+      "name": "Mixed Rice & Beans",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": null
+    },
+    {
+      "id": "rice-fiesta-rice",
+      "category_id": "rice",
+      "name": "Fiesta Rice",
+      "description": "2 scoops",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Fiesta rice 2 Scoops"
+    },
+    {
+      "id": "rice-chinese-rice",
+      "category_id": "rice",
+      "name": "Chinese Rice",
+      "description": "2 scoops",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Chinese rice 2scoops"
+    },
+    {
+      "id": "rice-jambalaya-rice",
+      "category_id": "rice",
+      "name": "Jambalaya Rice",
+      "description": "2 scoops",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Jambalaya Rice (2scoops)"
+    },
+    {
+      "id": "rice-special-rice",
+      "category_id": "rice",
+      "name": "Special Rice",
+      "description": "2 scoops",
+      "price": 4000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Special Rice"
+    },
+    {
+      "id": "rice-asun",
+      "category_id": "rice",
+      "name": "Asun Rice",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": null
+    },
+    {
+      "id": "rice-yakoyo-loaded",
+      "category_id": "rice",
+      "name": "Yàkoyó Loaded Rice",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": null
+    },
+    {
+      "id": "rice-basmati-half",
+      "category_id": "rice",
+      "name": "Basmati Rice (half portion)",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Half Portion Of Basmati"
+    },
+    {
+      "id": "rice-turkey-cinnamon",
+      "category_id": "rice",
+      "name": "Turkey Cinnamon Rice",
+      "description": null,
+      "price": 6000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Turkey Cinnammon Rice"
+    },
+    {
+      "id": "pasta-spaghetti",
+      "category_id": "pasta",
+      "name": "Spaghetti",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "pasta-asun-spaghetti",
+      "category_id": "pasta",
+      "name": "Asun Spaghetti",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "pasta-native-spaghetti",
+      "category_id": "pasta",
+      "name": "Native Spaghetti",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Native Spaghetti"
+    },
+    {
+      "id": "pasta-macaroni",
+      "category_id": "pasta",
+      "name": "Macaroni",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Macaroni"
+    },
+    {
+      "id": "pasta-special-macaroni",
+      "category_id": "pasta",
+      "name": "Special Macaroni",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Special Macaroni"
+    },
+    {
+      "id": "beans-ewa-agoyin",
+      "category_id": "beans-yam",
+      "name": "Ewa Agoyin",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Ewa Igoyin"
+    },
+    {
+      "id": "beans-plain",
+      "category_id": "beans-yam",
+      "name": "Plain Beans",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Plain beans"
+    },
+    {
+      "id": "beans-porridge",
+      "category_id": "beans-yam",
+      "name": "Porridge Beans",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Porridge beans"
+    },
+    {
+      "id": "beans-fried-beans",
+      "category_id": "beans-yam",
+      "name": "Fried Beans",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": null
+    },
+    {
+      "id": "beans-mixed-beans-porridge",
+      "category_id": "beans-yam",
+      "name": "Mixed Beans Porridge",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": null
+    },
+    {
+      "id": "yam-porridge",
+      "category_id": "beans-yam",
+      "name": "Porridge Yam",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": null
+    },
+    {
+      "id": "yam-special-porridge",
+      "category_id": "beans-yam",
+      "name": "Special Porridge Yam",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Special Porridge Yam"
+    },
+    {
+      "id": "yam-fried",
+      "category_id": "beans-yam",
+      "name": "Fried Yam",
+      "description": null,
+      "price": 200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Fried yam"
+    },
+    {
+      "id": "yam-white",
+      "category_id": "beans-yam",
+      "name": "White Yam",
+      "description": "Per slice",
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "White yam / slice"
+    },
+    {
+      "id": "yam-yamarita",
+      "category_id": "beans-yam",
+      "name": "Yamarita",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Yamarita"
+    },
+    {
+      "id": "side-plantain",
+      "category_id": "sides",
+      "name": "Plantain",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "side-moimoi",
+      "category_id": "sides",
+      "name": "Moi-Moi",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Moi-moi"
+    },
+    {
+      "id": "side-big-moimoi",
+      "category_id": "sides",
+      "name": "Big Moi-Moi",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Big Moi-Moi"
+    },
+    {
+      "id": "side-boiled-egg",
+      "category_id": "sides",
+      "name": "Boiled Egg",
+      "description": null,
+      "price": 300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Boiled egg"
+    },
+    {
+      "id": "side-egg-sauce",
+      "category_id": "sides",
+      "name": "Egg Sauce",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": null
+    },
+    {
+      "id": "side-salad",
+      "category_id": "sides",
+      "name": "Salad",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Salad"
+    },
+    {
+      "id": "side-chicken-salad",
+      "category_id": "sides",
+      "name": "Chicken Salad",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Chicken Salad"
+    },
+    {
+      "id": "side-pepper-soup",
+      "category_id": "sides",
+      "name": "Goat Meat Assorted Pepper Soup",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Goat meat assorted Pepper soup"
+    },
+    {
+      "id": "side-plantain-veg-goat",
+      "category_id": "sides",
+      "name": "Boiled Plantain, Vegetable & Goat Meat",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Boiled plantainvegetable and goat meat"
+    },
+    {
+      "id": "shawarma-chicken",
+      "category_id": "shawarma",
+      "name": "Chicken Shawarma",
+      "description": null,
+      "price": 1200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "shawarma-beef",
+      "category_id": "shawarma",
+      "name": "Beef Shawarma",
+      "description": null,
+      "price": 1400,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "shawarma-beef-suya",
+      "category_id": "shawarma",
+      "name": "Beef Suya Shawarma",
+      "description": null,
+      "price": 1600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": null
+    },
+    {
+      "id": "shawarma-chicken-sausage",
+      "category_id": "shawarma",
+      "name": "Chicken & Sausage Shawarma",
+      "description": null,
+      "price": 1400,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": null
+    },
+    {
+      "id": "shawarma-mixed-double",
+      "category_id": "shawarma",
+      "name": "Mixed Double Shawarma",
+      "description": "Chicken, beef & sausage",
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Mixed Double - Chicken Beef & Sausage"
+    },
+    {
+      "id": "shawarma-special-mix",
+      "category_id": "shawarma",
+      "name": "Special Mix Shawarma",
+      "description": null,
+      "price": 1800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Special mix"
+    },
+    {
+      "id": "shawarma-yakoyo-delight",
+      "category_id": "shawarma",
+      "name": "Yàkoyó Special Delight",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Yakoyo special delight"
+    },
+    {
+      "id": "snack-meat-pie",
+      "category_id": "snacks",
+      "name": "Meat Pie",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Meat pie"
+    },
+    {
+      "id": "snack-chicken-pie",
+      "category_id": "snacks",
+      "name": "Chicken Pie",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Chicken Pie"
+    },
+    {
+      "id": "snack-sausage-roll",
+      "category_id": "snacks",
+      "name": "Sausage Roll",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Sausage Roll"
+    },
+    {
+      "id": "snack-egg-roll",
+      "category_id": "snacks",
+      "name": "Egg Roll",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Egg Roll"
+    },
+    {
+      "id": "snack-puff-puff",
+      "category_id": "snacks",
+      "name": "Puff Puff",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Puff puff"
+    },
+    {
+      "id": "snack-akara",
+      "category_id": "snacks",
+      "name": "Akara",
+      "description": null,
+      "price": 100,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Akara"
+    },
+    {
+      "id": "snack-doughnut",
+      "category_id": "snacks",
+      "name": "Doughnut",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Doughnut"
+    },
+    {
+      "id": "snack-chin-chin",
+      "category_id": "snacks",
+      "name": "Chin-Chin",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Chin-Chin"
+    },
+    {
+      "id": "snack-tater-rolls",
+      "category_id": "snacks",
+      "name": "Tater Rolls",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Tater Rolls"
+    },
+    {
+      "id": "snack-hot-dog",
+      "category_id": "snacks",
+      "name": "Hot Dog",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Hot dog"
+    },
+    {
+      "id": "snack-classic-hot-dog",
+      "category_id": "snacks",
+      "name": "Classic Hot Dog",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Classic Hot Dog"
+    },
+    {
+      "id": "snack-sandwich",
+      "category_id": "snacks",
+      "name": "Sandwich",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Sandwich"
+    },
+    {
+      "id": "snack-burger",
+      "category_id": "snacks",
+      "name": "Burger",
+      "description": null,
+      "price": 7000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Burger"
+    },
+    {
+      "id": "bread-small-bread",
+      "category_id": "bread",
+      "name": "Small Bread",
+      "description": null,
+      "price": 600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Small Bread"
+    },
+    {
+      "id": "bread-medium-bread",
+      "category_id": "bread",
+      "name": "Medium Bread",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Medium Bread"
+    },
+    {
+      "id": "bread-fruit-bread",
+      "category_id": "bread",
+      "name": "Fruit Bread",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Fruit Bread"
+    },
+    {
+      "id": "bread-coconut-bread",
+      "category_id": "bread",
+      "name": "Coconut Bread",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Coconut Bread"
+    },
+    {
+      "id": "bread-chocolate-bread",
+      "category_id": "bread",
+      "name": "Chocolate Bread",
+      "description": null,
+      "price": 1600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Chocolate Bread"
+    },
+    {
+      "id": "bread-chocolate-bread-heavy",
+      "category_id": "bread",
+      "name": "Chocolate Bread (Heavy)",
+      "description": null,
+      "price": 1700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Chocolate Bread Heavy"
+    },
+    {
+      "id": "bread-sardine-bread",
+      "category_id": "bread",
+      "name": "Sardine Bread",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Sardine Bread"
+    },
+    {
+      "id": "drink-coke-bottle",
+      "category_id": "soft-drinks",
+      "name": "Coke (bottle)",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Coke"
+    },
+    {
+      "id": "drink-coke-pet",
+      "category_id": "soft-drinks",
+      "name": "Coke (PET)",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Coke Pet"
+    },
+    {
+      "id": "drink-fanta-bottle",
+      "category_id": "soft-drinks",
+      "name": "Fanta (bottle)",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Fanta"
+    },
+    {
+      "id": "drink-fanta-pet",
+      "category_id": "soft-drinks",
+      "name": "Fanta (PET)",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Fanta Pet"
+    },
+    {
+      "id": "drink-sprite-pet",
+      "category_id": "soft-drinks",
+      "name": "Sprite (PET)",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Sprite Pet"
+    },
+    {
+      "id": "drink-limca-pet",
+      "category_id": "soft-drinks",
+      "name": "Limca (PET)",
+      "description": null,
+      "price": 300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Limca Pet"
+    },
+    {
+      "id": "drink-schweppes-chapman",
+      "category_id": "soft-drinks",
+      "name": "Schweppes Chapman",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Schweppes Chapman"
+    },
+    {
+      "id": "drink-schweppes-pineapple",
+      "category_id": "soft-drinks",
+      "name": "Schweppes Pineapple",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Schweppes Pineapple"
+    },
+    {
+      "id": "drink-schweppes-tonic-water",
+      "category_id": "soft-drinks",
+      "name": "Schweppes Tonic Water",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Schweppes T/Water"
+    },
+    {
+      "id": "drink-schweppes-virgin-mojito",
+      "category_id": "soft-drinks",
+      "name": "Schweppes Virgin Mojito",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Schweppes V/Mojito"
+    },
+    {
+      "id": "drink-fayrouz",
+      "category_id": "soft-drinks",
+      "name": "Fayrouz",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Fayrouz"
+    },
+    {
+      "id": "drink-imperial-crown",
+      "category_id": "soft-drinks",
+      "name": "Imperial Crown",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Imperial Crown"
+    },
+    {
+      "id": "drink-tomi-drink",
+      "category_id": "soft-drinks",
+      "name": "Tomi Drink",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Tomi Drink"
+    },
+    {
+      "id": "drink-vita-milk",
+      "category_id": "soft-drinks",
+      "name": "Vita Milk",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": "Vita Milk"
+    },
+    {
+      "id": "drink-zobo",
+      "category_id": "soft-drinks",
+      "name": "Zobo",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Zobo"
+    },
+    {
+      "id": "drink-big-zobo",
+      "category_id": "soft-drinks",
+      "name": "Big Zobo",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Big Zobo"
+    },
+    {
+      "id": "drink-ice-tea-bottle",
+      "category_id": "soft-drinks",
+      "name": "Ice Tea (bottle)",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 17,
+      "pos_name": "Bottle Ice Tea"
+    },
+    {
+      "id": "drink-ice-tea-large",
+      "category_id": "soft-drinks",
+      "name": "Ice Tea (large)",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 18,
+      "pos_name": "Ice Tea"
+    },
+    {
+      "id": "drink-aquafina-water",
+      "category_id": "soft-drinks",
+      "name": "Aquafina Water",
+      "description": null,
+      "price": 150,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 19,
+      "pos_name": "Aquafina"
+    },
+    {
+      "id": "drink-eva-water",
+      "category_id": "soft-drinks",
+      "name": "Eva Water",
+      "description": null,
+      "price": 400,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 20,
+      "pos_name": "Eva Water"
+    },
+    {
+      "id": "drink-big-water",
+      "category_id": "soft-drinks",
+      "name": "Big Water",
+      "description": null,
+      "price": 500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 21,
+      "pos_name": "Big Water"
+    },
+    {
+      "id": "drink-malta-guinness",
+      "category_id": "malt-energy",
+      "name": "Malta Guinness",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Malta Guiness"
+    },
+    {
+      "id": "drink-amstel-malta",
+      "category_id": "malt-energy",
+      "name": "Amstel Malta",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Amstel Malta"
+    },
+    {
+      "id": "drink-malta-classic",
+      "category_id": "malt-energy",
+      "name": "Malta Classic",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Malta Classic"
+    },
+    {
+      "id": "drink-malt-can",
+      "category_id": "malt-energy",
+      "name": "Malt (can)",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Can Malt"
+    },
+    {
+      "id": "drink-lucozade-boost",
+      "category_id": "malt-energy",
+      "name": "Lucozade Boost",
+      "description": null,
+      "price": 1300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Lucozade Boost"
+    },
+    {
+      "id": "drink-monster",
+      "category_id": "malt-energy",
+      "name": "Monster",
+      "description": null,
+      "price": 1200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Monster"
+    },
+    {
+      "id": "drink-arizona",
+      "category_id": "malt-energy",
+      "name": "Arizona",
+      "description": null,
+      "price": 1200,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Arizona"
+    },
+    {
+      "id": "drink-black-stallion",
+      "category_id": "malt-energy",
+      "name": "Black Stallion",
+      "description": null,
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Black Stallion"
+    },
+    {
+      "id": "drink-predator",
+      "category_id": "malt-energy",
+      "name": "Predator",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Predator"
+    },
+    {
+      "id": "drink-power-horse",
+      "category_id": "malt-energy",
+      "name": "Power Horse",
+      "description": null,
+      "price": 600,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Power Horse"
+    },
+    {
+      "id": "drink-fresh-juice",
+      "category_id": "juice-yoghurt",
+      "name": "Fresh Juice",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Fresh Juice"
+    },
+    {
+      "id": "drink-smoothie",
+      "category_id": "juice-yoghurt",
+      "name": "Smoothie",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Smoothie"
+    },
+    {
+      "id": "drink-berry-blast",
+      "category_id": "juice-yoghurt",
+      "name": "Berry Blast",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Berry Blast"
+    },
+    {
+      "id": "drink-chivita-exotic-active",
+      "category_id": "juice-yoghurt",
+      "name": "Chivita Exotic / Active",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Chivita Exotic/Active"
+    },
+    {
+      "id": "drink-chivita-blend",
+      "category_id": "juice-yoghurt",
+      "name": "Chivita Blend",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Chivita Blend"
+    },
+    {
+      "id": "drink-pulpy-35cl",
+      "category_id": "juice-yoghurt",
+      "name": "Pulpy 35cl",
+      "description": null,
+      "price": 700,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Pulpy 35cl"
+    },
+    {
+      "id": "drink-pulpy-85cl",
+      "category_id": "juice-yoghurt",
+      "name": "Pulpy 85cl",
+      "description": null,
+      "price": 1500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Pulpy 85cl"
+    },
+    {
+      "id": "drink-ribena",
+      "category_id": "juice-yoghurt",
+      "name": "Ribena",
+      "description": null,
+      "price": 1300,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Ribena"
+    },
+    {
+      "id": "drink-fresh-yo",
+      "category_id": "juice-yoghurt",
+      "name": "Fresh Yo",
+      "description": null,
+      "price": 800,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Fresh Yo"
+    },
+    {
+      "id": "drink-hollandia-yoghurt",
+      "category_id": "juice-yoghurt",
+      "name": "Hollandia Yoghurt",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 10,
+      "pos_name": "Hollandia Yogurt"
+    },
+    {
+      "id": "drink-peak-yoghurt",
+      "category_id": "juice-yoghurt",
+      "name": "Peak Yoghurt",
+      "description": null,
+      "price": 2000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 11,
+      "pos_name": "Peak Yoghurt"
+    },
+    {
+      "id": "drink-cinnamon-yoghurt",
+      "category_id": "juice-yoghurt",
+      "name": "Cinnamon Yoghurt",
+      "description": null,
+      "price": 2500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 12,
+      "pos_name": "Cinnamon Yoghurt"
+    },
+    {
+      "id": "drink-bottle-yoghurt",
+      "category_id": "juice-yoghurt",
+      "name": "Bottle Yoghurt",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 13,
+      "pos_name": "Bottle Yoghurt"
+    },
+    {
+      "id": "drink-emmabeth-parfait",
+      "category_id": "juice-yoghurt",
+      "name": "Emmabeth Parfait",
+      "description": null,
+      "price": 2500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 14,
+      "pos_name": "Emmabeth Parfait"
+    },
+    {
+      "id": "drink-cyndy-parfait",
+      "category_id": "juice-yoghurt",
+      "name": "Cyndy Parfait",
+      "description": null,
+      "price": 3000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 15,
+      "pos_name": "Cyndy Parfait"
+    },
+    {
+      "id": "drink-big-parfait",
+      "category_id": "juice-yoghurt",
+      "name": "Big Parfait",
+      "description": null,
+      "price": 3500,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 16,
+      "pos_name": "Big Parfait"
+    },
+    {
+      "id": "pack-egusi-pack",
+      "category_id": "soup-packs",
+      "name": "Egusi Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 32000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Egusi PACK"
+    },
+    {
+      "id": "pack-vegetable-pack",
+      "category_id": "soup-packs",
+      "name": "Vegetable Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 35000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Vegetable PACK"
+    },
+    {
+      "id": "pack-afang-pack",
+      "category_id": "soup-packs",
+      "name": "Afang Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Afang PACK"
+    },
+    {
+      "id": "pack-edikaikong-pack",
+      "category_id": "soup-packs",
+      "name": "Edikaikong Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 1000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Edikaikong PACK"
+    },
+    {
+      "id": "pack-ogbono-pack",
+      "category_id": "soup-packs",
+      "name": "Ogbono Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Ogbono PACK"
+    },
+    {
+      "id": "pack-oha-pack",
+      "category_id": "soup-packs",
+      "name": "Oha Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Oha PACK"
+    },
+    {
+      "id": "pack-mixed-okro-pack",
+      "category_id": "soup-packs",
+      "name": "Mixed Okro Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Mixed-okroPACK"
+    },
+    {
+      "id": "pack-ofada-sauce-pack",
+      "category_id": "soup-packs",
+      "name": "Ofada Sauce Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 8,
+      "pos_name": "Ofada sauce PACK"
+    },
+    {
+      "id": "pack-stew-with-protein-pack",
+      "category_id": "soup-packs",
+      "name": "Stew with Protein Pack",
+      "description": "Bulk pack — best ordered ahead",
+      "price": 10000,
+      "image_url": null,
+      "is_available": true,
+      "sort_order": 9,
+      "pos_name": "Stew with protein PACK"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "side-plantain-moimoi",
+      "name": "Choose your side",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "swallow-eba-semo",
+      "name": "Choose your swallow",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "protein-beef-ponmo",
+      "name": "Choose your protein",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-ponmo-ijebu",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-chicken-turkey",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-chicken-wings",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-fresh-fish",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-panla-titus",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-eja-kika",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-coconut-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-native-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-ofada-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-wanke-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-mixed-rb",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-asun-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-loaded-rice",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-spaghetti",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-asun-spaghetti",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-fried-beans",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-mixed-beans-porridge",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-porridge-yam",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-plantain",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "portion-egg-sauce",
+      "name": "Choose portion",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-chicken-shawarma",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-beef-shawarma",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-beef-suya-shawarma",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "size-chicken-sausage-shawarma",
+      "name": "Choose size",
+      "selection_type": "single",
+      "is_required": true,
+      "min_select": 1,
+      "max_select": 1,
+      "sort_order": 1
+    }
+  ],
+  "options": [
+    {
+      "id": "side-plantain-moimoi--plantain",
+      "option_group_id": "side-plantain-moimoi",
+      "name": "Plantain",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "side-plantain-moimoi--moi-moi",
+      "option_group_id": "side-plantain-moimoi",
+      "name": "Moi-Moi",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "swallow-eba-semo--eba",
+      "option_group_id": "swallow-eba-semo",
+      "name": "Eba",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "swallow-eba-semo--semo",
+      "option_group_id": "swallow-eba-semo",
+      "name": "Semo",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "protein-beef-ponmo--beef",
+      "option_group_id": "protein-beef-ponmo",
+      "name": "Beef",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": null
+    },
+    {
+      "id": "protein-beef-ponmo--ponmo",
+      "option_group_id": "protein-beef-ponmo",
+      "name": "Ponmo",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": null
+    },
+    {
+      "id": "size-ponmo-ijebu--1-5k",
+      "option_group_id": "size-ponmo-ijebu",
+      "name": "1.5K",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Ponmo Ijebu"
+    },
+    {
+      "id": "size-ponmo-ijebu--2k",
+      "option_group_id": "size-ponmo-ijebu",
+      "name": "2K",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Ponmo Ijebu 2K"
+    },
+    {
+      "id": "size-chicken-turkey--mini-3k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "Mini (3K)",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Chicken/Turkey Mini"
+    },
+    {
+      "id": "size-chicken-turkey--3-5k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "3.5K",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Chicken/Turkey 3.5K"
+    },
+    {
+      "id": "size-chicken-turkey--4k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "4K",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Chicken/Turkey 4K"
+    },
+    {
+      "id": "size-chicken-turkey--4-5k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "4.5K",
+      "price_delta": 1500,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Chicken/Turkey 4.5K"
+    },
+    {
+      "id": "size-chicken-turkey--5k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "5K",
+      "price_delta": 2000,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Chicken/Turkey 5K"
+    },
+    {
+      "id": "size-chicken-turkey--6k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "6K",
+      "price_delta": 3000,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Chicken/Turkey 6K"
+    },
+    {
+      "id": "size-chicken-turkey--turkey-7k",
+      "option_group_id": "size-chicken-turkey",
+      "name": "Turkey 7K",
+      "price_delta": 4000,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Turkey 7K"
+    },
+    {
+      "id": "size-chicken-wings--small",
+      "option_group_id": "size-chicken-wings",
+      "name": "Small",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Chicken Wings Small"
+    },
+    {
+      "id": "size-chicken-wings--regular",
+      "option_group_id": "size-chicken-wings",
+      "name": "Regular",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Chicken Wings"
+    },
+    {
+      "id": "size-fresh-fish--3k",
+      "option_group_id": "size-fresh-fish",
+      "name": "3K",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Fresh Fish 3K"
+    },
+    {
+      "id": "size-fresh-fish--3-5k",
+      "option_group_id": "size-fresh-fish",
+      "name": "3.5K",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Fresh Fish 3.5K"
+    },
+    {
+      "id": "size-fresh-fish--4k",
+      "option_group_id": "size-fresh-fish",
+      "name": "4K",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Fresh Fish 4K"
+    },
+    {
+      "id": "size-fresh-fish--4-5k",
+      "option_group_id": "size-fresh-fish",
+      "name": "4.5K",
+      "price_delta": 1500,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Fresh Fish 4.5K"
+    },
+    {
+      "id": "size-fresh-fish--5k",
+      "option_group_id": "size-fresh-fish",
+      "name": "5K",
+      "price_delta": 2000,
+      "is_available": true,
+      "sort_order": 5,
+      "pos_name": "Fresh Fish 5K"
+    },
+    {
+      "id": "size-fresh-fish--6k",
+      "option_group_id": "size-fresh-fish",
+      "name": "6K",
+      "price_delta": 3000,
+      "is_available": true,
+      "sort_order": 6,
+      "pos_name": "Fresh Fish 6K"
+    },
+    {
+      "id": "size-fresh-fish--7k",
+      "option_group_id": "size-fresh-fish",
+      "name": "7K",
+      "price_delta": 4000,
+      "is_available": true,
+      "sort_order": 7,
+      "pos_name": "Fresh Fish 7K"
+    },
+    {
+      "id": "size-panla-titus--2k",
+      "option_group_id": "size-panla-titus",
+      "name": "2K",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Panla/Titus 2K"
+    },
+    {
+      "id": "size-panla-titus--2-5k",
+      "option_group_id": "size-panla-titus",
+      "name": "2.5K",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Panla/Titus 2.5K"
+    },
+    {
+      "id": "size-panla-titus--3k",
+      "option_group_id": "size-panla-titus",
+      "name": "3K",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Panla/Titus 3K"
+    },
+    {
+      "id": "size-eja-kika--1-5k",
+      "option_group_id": "size-eja-kika",
+      "name": "1.5K",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Eja Kika 1.5K"
+    },
+    {
+      "id": "size-eja-kika--2k",
+      "option_group_id": "size-eja-kika",
+      "name": "2K",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Eja kika 2K"
+    },
+    {
+      "id": "portion-coconut-rice--half-portion",
+      "option_group_id": "portion-coconut-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K rice"
+    },
+    {
+      "id": "portion-coconut-rice--full-2-scoops",
+      "option_group_id": "portion-coconut-rice",
+      "name": "Full (2 scoops)",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Coconut rice 2 Scoops"
+    },
+    {
+      "id": "portion-native-rice--half-portion",
+      "option_group_id": "portion-native-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K rice"
+    },
+    {
+      "id": "portion-native-rice--full-2-scoops",
+      "option_group_id": "portion-native-rice",
+      "name": "Full (2 scoops)",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Native rice 2 Scoops"
+    },
+    {
+      "id": "portion-ofada-rice--half-portion",
+      "option_group_id": "portion-ofada-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K rice"
+    },
+    {
+      "id": "portion-ofada-rice--full-2-scoops",
+      "option_group_id": "portion-ofada-rice",
+      "name": "Full (2 scoops)",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Ofada rice (2 Scoops)"
+    },
+    {
+      "id": "portion-wanke-rice--half-portion",
+      "option_group_id": "portion-wanke-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K rice"
+    },
+    {
+      "id": "portion-wanke-rice--full-2-scoops",
+      "option_group_id": "portion-wanke-rice",
+      "name": "Full (2 scoops)",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Wanke rice (2 Scoops)"
+    },
+    {
+      "id": "portion-mixed-rb--half-portion",
+      "option_group_id": "portion-mixed-rb",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of Mixed R&B"
+    },
+    {
+      "id": "portion-mixed-rb--full-2-scoops",
+      "option_group_id": "portion-mixed-rb",
+      "name": "Full (2 scoops)",
+      "price_delta": 700,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Mixed Rice & Beans 2 Scoops"
+    },
+    {
+      "id": "portion-asun-rice--half-portion",
+      "option_group_id": "portion-asun-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of Asun Rice"
+    },
+    {
+      "id": "portion-asun-rice--full-2-scoops",
+      "option_group_id": "portion-asun-rice",
+      "name": "Full (2 scoops)",
+      "price_delta": 2000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Asun Rice (2 Scoops)"
+    },
+    {
+      "id": "portion-loaded-rice--half-portion",
+      "option_group_id": "portion-loaded-rice",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half of Yakoyo Loaded Rice"
+    },
+    {
+      "id": "portion-loaded-rice--full",
+      "option_group_id": "portion-loaded-rice",
+      "name": "Full",
+      "price_delta": 2000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Yakoyo Loaded Rice"
+    },
+    {
+      "id": "portion-spaghetti--half-portion",
+      "option_group_id": "portion-spaghetti",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of  Spaghetti"
+    },
+    {
+      "id": "portion-spaghetti--full",
+      "option_group_id": "portion-spaghetti",
+      "name": "Full",
+      "price_delta": 700,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Spaghetti"
+    },
+    {
+      "id": "portion-asun-spaghetti--half-portion",
+      "option_group_id": "portion-asun-spaghetti",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of  Asun Spaghetti"
+    },
+    {
+      "id": "portion-asun-spaghetti--full",
+      "option_group_id": "portion-asun-spaghetti",
+      "name": "Full",
+      "price_delta": 1500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Asun Spaghetti"
+    },
+    {
+      "id": "portion-fried-beans--half-portion",
+      "option_group_id": "portion-fried-beans",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K Beans"
+    },
+    {
+      "id": "portion-fried-beans--full",
+      "option_group_id": "portion-fried-beans",
+      "name": "Full",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Fried Beans"
+    },
+    {
+      "id": "portion-mixed-beans-porridge--half-portion",
+      "option_group_id": "portion-mixed-beans-porridge",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of 2K Beans"
+    },
+    {
+      "id": "portion-mixed-beans-porridge--full",
+      "option_group_id": "portion-mixed-beans-porridge",
+      "name": "Full",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Mixed Beans Porridge"
+    },
+    {
+      "id": "portion-porridge-yam--half-portion",
+      "option_group_id": "portion-porridge-yam",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of Porridge Yam"
+    },
+    {
+      "id": "portion-porridge-yam--full-2-scoops",
+      "option_group_id": "portion-porridge-yam",
+      "name": "Full (2 scoops)",
+      "price_delta": 1000,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Porridge yam (2 Scoops)"
+    },
+    {
+      "id": "size-plantain--regular",
+      "option_group_id": "size-plantain",
+      "name": "Regular",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Plantain"
+    },
+    {
+      "id": "size-plantain--large",
+      "option_group_id": "size-plantain",
+      "name": "Large",
+      "price_delta": 500,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Plantain 1.5k"
+    },
+    {
+      "id": "portion-egg-sauce--half-portion",
+      "option_group_id": "portion-egg-sauce",
+      "name": "Half portion",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Half Portion Of Egg Sauce"
+    },
+    {
+      "id": "portion-egg-sauce--full",
+      "option_group_id": "portion-egg-sauce",
+      "name": "Full",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Egg sauce"
+    },
+    {
+      "id": "size-chicken-shawarma--plain",
+      "option_group_id": "size-chicken-shawarma",
+      "name": "Plain",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Plain Shawarma - Chicken"
+    },
+    {
+      "id": "size-chicken-shawarma--single",
+      "option_group_id": "size-chicken-shawarma",
+      "name": "Single",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Chicken single"
+    },
+    {
+      "id": "size-chicken-shawarma--double",
+      "option_group_id": "size-chicken-shawarma",
+      "name": "Double",
+      "price_delta": 400,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Chicken double"
+    },
+    {
+      "id": "size-chicken-shawarma--special-large",
+      "option_group_id": "size-chicken-shawarma",
+      "name": "Special (large)",
+      "price_delta": 400,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Chicken special large"
+    },
+    {
+      "id": "size-beef-shawarma--single",
+      "option_group_id": "size-beef-shawarma",
+      "name": "Single",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Beef single"
+    },
+    {
+      "id": "size-beef-shawarma--double",
+      "option_group_id": "size-beef-shawarma",
+      "name": "Double",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Beef double"
+    },
+    {
+      "id": "size-beef-shawarma--special-small",
+      "option_group_id": "size-beef-shawarma",
+      "name": "Special (small)",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 3,
+      "pos_name": "Beef special (small)"
+    },
+    {
+      "id": "size-beef-shawarma--special-large",
+      "option_group_id": "size-beef-shawarma",
+      "name": "Special (large)",
+      "price_delta": 400,
+      "is_available": true,
+      "sort_order": 4,
+      "pos_name": "Beef special (large)"
+    },
+    {
+      "id": "size-beef-suya-shawarma--single",
+      "option_group_id": "size-beef-suya-shawarma",
+      "name": "Single",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "Beef suya single"
+    },
+    {
+      "id": "size-beef-suya-shawarma--double",
+      "option_group_id": "size-beef-suya-shawarma",
+      "name": "Double",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Beef suya double"
+    },
+    {
+      "id": "size-chicken-sausage-shawarma--single",
+      "option_group_id": "size-chicken-sausage-shawarma",
+      "name": "Single",
+      "price_delta": 0,
+      "is_available": true,
+      "sort_order": 1,
+      "pos_name": "DoubleSingle Sausage Shawarma - Chicken & Sausage"
+    },
+    {
+      "id": "size-chicken-sausage-shawarma--double",
+      "option_group_id": "size-chicken-sausage-shawarma",
+      "name": "Double",
+      "price_delta": 200,
+      "is_available": true,
+      "sort_order": 2,
+      "pos_name": "Double Sausage Shawarma - Chicken & Sausage"
+    }
+  ],
+  "menu_item_option_groups": [
+    {
+      "menu_item_id": "combo-amala-2",
+      "option_group_id": "protein-beef-ponmo"
+    },
+    {
+      "menu_item_id": "combo-eba-semo-1",
+      "option_group_id": "swallow-eba-semo"
+    },
+    {
+      "menu_item_id": "combo-eba-semo-2",
+      "option_group_id": "swallow-eba-semo"
+    },
+    {
+      "menu_item_id": "combo-jollof",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-chicken",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-fish",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-turkey",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-fried-beef",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-fried-croaker",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-jollof-fried-turkey",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-white-rice",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-coconut-rice",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-rice-beans",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "combo-porridge-yam",
+      "option_group_id": "side-plantain-moimoi"
+    },
+    {
+      "menu_item_id": "meat-ponmo-ijebu",
+      "option_group_id": "size-ponmo-ijebu"
+    },
+    {
+      "menu_item_id": "meat-chicken-turkey",
+      "option_group_id": "size-chicken-turkey"
+    },
+    {
+      "menu_item_id": "meat-chicken-wings",
+      "option_group_id": "size-chicken-wings"
+    },
+    {
+      "menu_item_id": "fish-fresh",
+      "option_group_id": "size-fresh-fish"
+    },
+    {
+      "menu_item_id": "fish-panla-titus",
+      "option_group_id": "size-panla-titus"
+    },
+    {
+      "menu_item_id": "fish-eja-kika",
+      "option_group_id": "size-eja-kika"
+    },
+    {
+      "menu_item_id": "rice-coconut-rice",
+      "option_group_id": "portion-coconut-rice"
+    },
+    {
+      "menu_item_id": "rice-native-rice",
+      "option_group_id": "portion-native-rice"
+    },
+    {
+      "menu_item_id": "rice-ofada-rice",
+      "option_group_id": "portion-ofada-rice"
+    },
+    {
+      "menu_item_id": "rice-wanke-rice",
+      "option_group_id": "portion-wanke-rice"
+    },
+    {
+      "menu_item_id": "rice-mixed-rice-beans",
+      "option_group_id": "portion-mixed-rb"
+    },
+    {
+      "menu_item_id": "rice-asun",
+      "option_group_id": "portion-asun-rice"
+    },
+    {
+      "menu_item_id": "rice-yakoyo-loaded",
+      "option_group_id": "portion-loaded-rice"
+    },
+    {
+      "menu_item_id": "pasta-spaghetti",
+      "option_group_id": "portion-spaghetti"
+    },
+    {
+      "menu_item_id": "pasta-asun-spaghetti",
+      "option_group_id": "portion-asun-spaghetti"
+    },
+    {
+      "menu_item_id": "beans-fried-beans",
+      "option_group_id": "portion-fried-beans"
+    },
+    {
+      "menu_item_id": "beans-mixed-beans-porridge",
+      "option_group_id": "portion-mixed-beans-porridge"
+    },
+    {
+      "menu_item_id": "yam-porridge",
+      "option_group_id": "portion-porridge-yam"
+    },
+    {
+      "menu_item_id": "side-plantain",
+      "option_group_id": "size-plantain"
+    },
+    {
+      "menu_item_id": "side-egg-sauce",
+      "option_group_id": "portion-egg-sauce"
+    },
+    {
+      "menu_item_id": "shawarma-chicken",
+      "option_group_id": "size-chicken-shawarma"
+    },
+    {
+      "menu_item_id": "shawarma-beef",
+      "option_group_id": "size-beef-shawarma"
+    },
+    {
+      "menu_item_id": "shawarma-beef-suya",
+      "option_group_id": "size-beef-suya-shawarma"
+    },
+    {
+      "menu_item_id": "shawarma-chicken-sausage",
+      "option_group_id": "size-chicken-sausage-shawarma"
+    }
+  ]
+}
