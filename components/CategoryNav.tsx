@@ -94,7 +94,8 @@ export function CategoryNav({ categories }: { categories: NavCategory[] }) {
               data-slug={slug}
               aria-current={isActive ? "true" : undefined}
               onClick={(event) => jumpTo(event, slug)}
-              className={`inline-flex h-9 shrink-0 items-center rounded-full border px-4 text-sm font-bold whitespace-nowrap transition-colors ${
+              // The chip looks 36px tall; the ::after stretches the tap area past 44px into the strip's padding.
+              className={`relative inline-flex h-9 shrink-0 items-center rounded-full border px-4 text-sm font-bold whitespace-nowrap transition-colors after:absolute after:inset-x-0 after:-inset-y-1.5 ${
                 isActive ? "border-ink bg-ink text-page" : "border-line bg-page text-ink"
               }`}
             >

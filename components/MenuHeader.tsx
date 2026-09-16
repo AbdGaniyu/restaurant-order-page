@@ -45,7 +45,8 @@ export function MenuHeader({ settings }: { settings: BusinessSettings }) {
                   href={settings.maps_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline underline-offset-2"
+                  // Inline text link: the ::before gives it a 44px tap area without moving the text.
+                  className="relative font-bold underline underline-offset-2 before:absolute before:-inset-x-2 before:-inset-y-3.5"
                 >
                   Directions
                 </a>
